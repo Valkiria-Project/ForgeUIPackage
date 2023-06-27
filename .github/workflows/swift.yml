@@ -21,6 +21,8 @@ jobs:
           swift-version: "5.8.0"
       - name: Get Swift version
         run: swift --version
+      - name: Show eligible build destinations for ForgeUIPackage
+        run: xcodebuild -showdestinations -scheme ForgeUIPackage
       - name: Build and Tests
         run: xcodebuild test -scheme ForgeUIPackage -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 14 Pro'
 #      - name: Run tests
