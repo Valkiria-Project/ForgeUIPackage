@@ -10,19 +10,19 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+    build:
 
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v3
+        - uses: actions/checkout@v3
         with:
-          swift-version: "5.8"
-      # Sanity check to make sure we use a valid device in the next step
-      - name: List available devices
+            swift-version: "5.8"
+        # Sanity check to make sure we use a valid device in the next step
+        - name: List available devices
         run: xcrun simctl list devicetypes
-    #generic/platform=iOS is sufficient for just building, - but need to specify concrete destination for tests
-    - name: Build and run tests
-      run: xcodebuild test -scheme ForgeUIPackage -destination 'platform=iOS Simulator,name=iPhone 14 Pro' #or any other name from the list of sim devices
+        #generic/platform=iOS is sufficient for just building, - but need to specify concrete destination for tests
+        - name: Build and run tests
+        run: xcodebuild test -scheme ForgeUIPackage -destination 'platform=iOS Simulator,name=iPhone 14 Pro' #or any other name from the list of sim devices
 
 
