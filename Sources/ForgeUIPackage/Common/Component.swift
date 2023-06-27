@@ -13,12 +13,15 @@ extension Component {
     var id: UUID { UUID() }
 }
 
-enum ComponentType: String, Codable {
-    case label = "LABEL"
-}
+//enum ComponentType: String, Codable {
+//    case label = "LABEL"
+//    case textField
+//}
 
 let componentTypes: [String: Component.Type] = [
-    "LABEL": LabelComponent.self
+    "LABEL": LabelComponent.self,
+    "TEXTFIELD": TextFieldComponent.self,
+    "BUTTON": ButtonComponent.self
 ]
 
 struct CodableComponent: Codable {
