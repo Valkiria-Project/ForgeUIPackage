@@ -22,6 +22,8 @@ jobs:
       - name: Get Swift version
         run: swift --version
       - name: Build and Tests
+        env:
+          platform: ${{ 'iOS Simulator' }}
         run: swift build
       - name: Run tests
         run: swift test
