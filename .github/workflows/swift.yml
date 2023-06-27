@@ -20,6 +20,6 @@ jobs:
         run: swift --version
       - uses: actions/checkout@v3
       - name: Build
-        run: swift build
-      - name: Run tests
-        run: swift test
+        run: run: xcodebuild test -scheme ForgeUIPackage -destination 'platform=iOS Simulator,name=iPhone 14 Pro'
+      #- name: Run tests
+      #  run: swift test
