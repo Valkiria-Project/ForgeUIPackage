@@ -15,11 +15,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          swift-version: "5.8"
-      - name: Build
-        run: swift build -v
-      - name: Run tests
-        run: swift test -v
+    - uses: actions/checkout@v3
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode-14.3.0.app && /usr/bin/xcodebuild -version
+    - name: Build and run tests
+      run: xcodebuild test -scheme YOUR_PACKAGE_TARGET_NAME -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.4' | xcpretty && exit ${PIPESTATUS[0]}
 
