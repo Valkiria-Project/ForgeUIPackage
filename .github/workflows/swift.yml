@@ -21,14 +21,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: swift-actions/setup-swift@v1
-        with:
-          swift-version: "5.8.0"
       - name: Get Swift version
         run: swift --version
       - name: Show eligible build destinations for ForgeUIPackage
         run: xcodebuild -showdestinations -scheme '${{ env.SCHEME }}'
       - name: Build
         run: xcodebuild -scheme '${{ env.SCHEME }}' -sdk iphonesimulator -destination '${{ env.TEST_DEVICE }}' build
-#      - name: Run tests
-#        run: swift test
+      - name: Run tests
+        run: xcodebuild -scheme '${{ env.SCHEME }}' -sdk iphonesimulator -destination '${{ env.TEST_DEVICE }}' test
 
