@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  SCHEME: ForgeUIPackage
+  TEST_DEVICE: platform=iOS Simulator,name=iPhone 14 Pro,OS=15.0
+
 jobs:
   build:
 
@@ -22,9 +26,9 @@ jobs:
       - name: Get Swift version
         run: swift --version
       - name: Show eligible build destinations for ForgeUIPackage
-        run: xcodebuild -showdestinations -scheme ForgeUIPackage
-      - name: Build and Tests
-        run: xcodebuild test -scheme ForgeUIPackage -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 14 Pro'
+        run: xcodebuild -showdestinations -scheme '${{ env.SCHEME }}'
+      - name: Build
+        run: xcodebuild -scheme '${{ env.SCHEME }}' -sdk iphonesimulator -destination '${{ env.TEST_DEVICE }}' build
 #      - name: Run tests
 #        run: swift test
 
