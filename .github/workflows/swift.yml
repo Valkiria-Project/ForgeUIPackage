@@ -11,8 +11,6 @@ on:
 
 jobs:
   build:
-    strategy:
-      swift: ["5.8"]
 
     runs-on: macos-latest
     
@@ -24,6 +22,6 @@ jobs:
         run: swift --version
       - uses: actions/checkout@v3
       - name: Build and Tests
-        run: xcodebuild test -scheme ForgeUIPackage -destination 'platform=iOS Simulator,name=iPhone 14 Pro'
-#      - name: Run tests
-#        run: swift test
+      - name: Run tests
+        run: swift test
+
