@@ -15,9 +15,14 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Select Xcode
-      run: sudo xcode-select -switch /Applications/Xcode-14.3.0.app && /usr/bin/xcodebuild -version
+      - uses: actions/checkout@v3
+        with:
+          swift-version: "5.8"
+      # Sanity check to make sure we use a valid device in the next step
+      - name: List available devices
+        run: xcrun simctl list devicetypes
+    #generic/platform=iOS is sufficient for just building, - but need to specify concrete destination for tests
     - name: Build and run tests
-      run: xcodebuild test -scheme YOUR_PACKAGE_TARGET_NAME -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.4' | xcpretty && exit ${PIPESTATUS[0]}
+      run: xcodebuild test -scheme ForgeUIPackage -destination 'platform=iOS Simulator,name=iPhone 14 Pro' #or any other name from the list of sim devices
+
 
