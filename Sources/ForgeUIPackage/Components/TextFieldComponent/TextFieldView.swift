@@ -11,18 +11,43 @@ public struct TextFieldView: View {
 
     public private(set) var viewModel: TextFieldViewModel
     @State public private(set) var inputText: String = ""
+    @State public private(set) var errorMessage: String? = "Error Message"
 
     public var body: some View {
-        TextField(viewModel.hint, text: $inputText)
-            .keyboardType(viewModel.keyboardType)
-            .padding(
-                .init(
-                    top: viewModel.margin.top,
-                    leading: viewModel.margin.left,
-                    bottom: viewModel.margin.bottom,
-                    trailing: viewModel.margin.right
-                )
+        ZStack {
+            VStack(alignment: .leading) {
+                TextField("", text: $inputText)
+                    .keyboardType(viewModel.keyboardType)
+                    .frame(height: 40)
+                    .border(errorMessage != nil ? Color.red : Color.gray, width: 2)
+                if let errorMessage {
+                    Text(errorMessage)
+                        .foregroundColor(Color.red)
+                        .padding([.leading])
+                }
+            }
+
+            HStack {
+                ZStack {
+                    Color(.white)
+                    Text(viewModel.hint)
+                        .foregroundColor(.white)
+                        .colorMultiply(.black)
+                        .layoutPriority(1)
+                }
+                .padding([.leading], 15.0)
+                .padding([.bottom], errorMessage != nil ? 68 : 42)
+                Spacer()
+            }
+        }
+        .padding(
+            .init(
+                top: viewModel.margin.top,
+                leading: viewModel.margin.left,
+                bottom: viewModel.margin.bottom,
+                trailing: viewModel.margin.right
             )
+        )
     }
 }
 
