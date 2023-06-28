@@ -29,12 +29,14 @@ public struct TextFieldView: View {
 
             HStack {
                 ZStack {
+                    Color(.white)
                     Text(viewModel.hint)
-                        .padding([.leading], 10.0)
-                        .padding([.bottom], errorMessage != nil ? 68 : 42)
+                        .foregroundColor(.white)
+                        .colorMultiply(.black)
                         .layoutPriority(1)
                 }
-                .padding([.leading], 2.0)
+                .padding([.leading], 15.0)
+                .padding([.bottom], errorMessage != nil ? 68 : 42)
                 Spacer()
             }
         }
