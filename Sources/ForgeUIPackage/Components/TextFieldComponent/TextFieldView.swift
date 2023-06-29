@@ -40,14 +40,6 @@ public struct TextFieldView: View {
                 Spacer()
             }
         }
-        .padding(
-            .init(
-                top: viewModel.margin.top,
-                leading: viewModel.margin.left,
-                bottom: viewModel.margin.bottom,
-                trailing: viewModel.margin.right
-            )
-        )
     }
 }
 

@@ -7,16 +7,11 @@
 
 import Foundation
 
-protocol Component {}
+public protocol Component {}
 
 extension Component {
     var id: UUID { UUID() }
 }
-
-//enum ComponentType: String, Codable {
-//    case label = "LABEL"
-//    case textField
-//}
 
 let componentTypes: [String: Component.Type] = [
     "LABEL": LabelComponent.self,
@@ -24,18 +19,18 @@ let componentTypes: [String: Component.Type] = [
     "BUTTON": ButtonComponent.self
 ]
 
-struct CodableComponent: Codable {
-    typealias _CodableComponent = Codable & Component
+public typealias CodableComponent = Codable & Component
 
+public struct ComponentSerializer: Codable {
     enum CodingKeys: String, CodingKey {
         case type
     }
 
-    private let _component: _CodableComponent
-    var component: _CodableComponent { _component }
+    private let _component: CodableComponent
+    public var component: CodableComponent { _component }
 
-    init(_ component: Component) throws {
-        guard let component = component as? _CodableComponent else {
+    public init(_ component: Component) throws {
+        guard let component = component as? CodableComponent else {
             throw EncodingError.invalidValue(
                 component, .init(
                     codingPath: [],
@@ -46,11 +41,11 @@ struct CodableComponent: Codable {
         self._component = component
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         let componentType = try keyedContainer.decode(String.self, forKey: .type)
 
-        guard let decodableType = componentTypes[componentType] as? _CodableComponent.Type else {
+        guard let decodableType = componentTypes[componentType] as? CodableComponent.Type else {
             throw DecodingError.dataCorruptedError(
                 forKey: .type,
                 in: keyedContainer,
@@ -58,10 +53,10 @@ struct CodableComponent: Codable {
             )
         }
 
-        self._component = try decodableType.init(from: decoder) as _CodableComponent
+        self._component = try decodableType.init(from: decoder) as CodableComponent
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         guard let type = componentTypes.first(where: { $1 == type(of: _component) })?.key else {
             let singleValueContainer = encoder.singleValueContainer()
             throw EncodingError.invalidValue(

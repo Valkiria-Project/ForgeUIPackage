@@ -13,15 +13,6 @@ public struct LabelView: View {
 
     public var body: some View {
         Text(viewModel.text)
-            .style(viewModel.style)
-            .padding(
-                .init(
-                    top: viewModel.margin.top,
-                    leading: viewModel.margin.left,
-                    bottom: viewModel.margin.bottom,
-                    trailing: viewModel.margin.right
-                )
-            )
     }
 }
 
@@ -32,6 +23,7 @@ struct TitleLabelView_Previews: PreviewProvider {
                 component: try! .titleExample()
             )
         )
+        .style(.title)
     }
 }
 
@@ -42,6 +34,7 @@ struct HeadingLabelView_Previews: PreviewProvider {
                 component: try! .headingExample()
             )
         )
+        .style(.heading)
     }
 }
 
@@ -52,10 +45,11 @@ struct BodyLabelView_Previews: PreviewProvider {
                 component: try! .bodyExample()
             )
         )
+        .style(.body)
     }
 }
 
-extension Text {
+fileprivate extension LabelView {
     func style(_ style: LabelStyle) -> some View {
         switch style {
         case .body:
