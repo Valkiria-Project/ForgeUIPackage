@@ -9,7 +9,11 @@ import SwiftUI
 
 public struct ButtonView: View {
 
-    public private(set) var viewModel: ButtonViewModel
+    private var viewModel: ButtonViewModel
+
+    public init(viewModel: ButtonViewModel) {
+        self.viewModel = viewModel
+    }
 
     public var body: some View {
         Button {
