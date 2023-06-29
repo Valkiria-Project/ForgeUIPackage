@@ -22,15 +22,6 @@ public struct ButtonView: View {
                 Text(label)
             }
         }
-        .style(viewModel.style)
-        .padding(
-            .init(
-                top: viewModel.margin.top,
-                leading: viewModel.margin.left,
-                bottom: viewModel.margin.bottom,
-                trailing: viewModel.margin.right
-            )
-        )
     }
 }
 
@@ -41,6 +32,7 @@ struct QuietIconButtonView_Previews: PreviewProvider {
                 component: try! .quietIconOnlyButtonExample()
             )
         )
+        .style(.quiet)
     }
 }
 
@@ -51,6 +43,7 @@ struct QuietTextButtonView_Previews: PreviewProvider {
                 component: try! .quietTextOnlyButtonExample()
             )
         )
+        .style(.quiet)
     }
 }
 
@@ -61,6 +54,7 @@ struct QuietTextAndIconButtonView_Previews: PreviewProvider {
                 component: try! .quietTextAndIconButtonExample()
             )
         )
+        .style(.quiet)
     }
 }
 
@@ -71,6 +65,7 @@ struct LoudIconButtonView_Previews: PreviewProvider {
                 component: try! .loudIconOnlyButtonExample()
             )
         )
+        .style(.loud)
     }
 }
 
@@ -81,6 +76,7 @@ struct LoudTextButtonView_Previews: PreviewProvider {
                 component: try! .loudTextOnlyButtonExample()
             )
         )
+        .style(.loud)
     }
 }
 
@@ -90,7 +86,7 @@ struct LoudTextAndIconButtonView_Previews: PreviewProvider {
             viewModel: .init(
                 component: try! .loudTextAndIconButtonExample()
             )
-        )
+        ).style(.loud)
     }
 }
 
@@ -101,6 +97,7 @@ struct SecondaryIconButtonView_Previews: PreviewProvider {
                 component: try! .secondaryIconOnlyButtonExample()
             )
         )
+        .style(.secondary)
     }
 }
 
@@ -111,6 +108,7 @@ struct SecondaryTextButtonView_Previews: PreviewProvider {
                 component: try! .secondaryTextOnlyButtonExample()
             )
         )
+        .style(.secondary)
     }
 }
 
@@ -121,10 +119,11 @@ struct SecondaryTextAndIconButtonView_Previews: PreviewProvider {
                 component: try! .secondaryTextAndIconButtonExample()
             )
         )
+        .style(.secondary)
     }
 }
 
-extension Button {
+fileprivate extension ButtonView {
     func style(_ style: ButtonStyle) -> some View {
         switch style {
         case .loud:
