@@ -13,13 +13,13 @@ public class ButtonViewModel {
     var icon: String?
     let style: ButtonStyle
     let action: Action
-    let margin: Margin
+    let margins: Margin
 
     public init(component: ButtonComponent) {
         label = component.label
         icon = component.icon
         style = component.style
         action = component.onClick
-        margin = component.margin
+        margins = component.margins
     }
 }

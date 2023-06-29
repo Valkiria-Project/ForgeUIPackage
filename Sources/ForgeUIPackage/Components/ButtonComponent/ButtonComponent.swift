@@ -19,15 +19,15 @@ public struct ButtonComponent: Component, Codable, Identifiable {
     public private(set) var icon: String?
     public private(set) var style: ButtonStyle
     public private(set) var onClick: Action
-    public private(set) var margin: Margin
+    public private(set) var margins: Margin
 
-    public init(label: String?, icon: String?, style: ButtonStyle, onClick: Action, margin: Margin) {
+    public init(label: String?, icon: String?, style: ButtonStyle, onClick: Action, margins: Margin) {
         self.id = UUID()
         self.label = label
         self.icon = icon
         self.style = style
         self.onClick = onClick
-        self.margin = margin
+        self.margins = margins
     }
 
     public init(from decoder: Decoder) throws {
@@ -37,7 +37,7 @@ public struct ButtonComponent: Component, Codable, Identifiable {
         self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
         self.style = try container.decode(ButtonStyle.self, forKey: .style)
         self.onClick = try container.decode(Action.self, forKey: .onClick)
-        self.margin = try container.decode(Margin.self, forKey: .margin)
+        self.margins = try container.decode(Margin.self, forKey: .margins)
     }
 }
 

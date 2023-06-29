@@ -25,14 +25,14 @@ public struct TextFieldComponent: Component, Codable, Identifiable {
     public private(set) var hint: String
     public private(set) var regex: String
     public private(set) var keyboardType: KeyboardType
-    public private(set) var margin: Margin
+    public private(set) var margins: Margin
 
-    public init(hint: String, regex: String, keyboardType: KeyboardType, margin: Margin) {
+    public init(hint: String, regex: String, keyboardType: KeyboardType, margins: Margin) {
         self.id = UUID()
         self.hint = hint
         self.regex = regex
         self.keyboardType = keyboardType
-        self.margin = margin
+        self.margins = margins
     }
 
     public init(from decoder: Decoder) throws {
@@ -41,7 +41,7 @@ public struct TextFieldComponent: Component, Codable, Identifiable {
         self.hint = try container.decode(String.self, forKey: .hint)
         self.regex = try container.decode(String.self, forKey: .regex)
         self.keyboardType = try container.decode(KeyboardType.self, forKey: .keyboardType)
-        self.margin = try container.decode(Margin.self, forKey: .margin)
+        self.margins = try container.decode(Margin.self, forKey: .margins)
     }
 }
 
