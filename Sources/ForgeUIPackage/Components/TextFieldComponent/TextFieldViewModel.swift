@@ -13,12 +13,12 @@ public class TextFieldViewModel {
     let hint: String
     let regex: String
     let keyboardType: UIKeyboardType
-    let margin: Margin
+    let margins: Margin
 
     public init(component: TextFieldComponent) {
         hint = component.hint
         regex = component.regex
-        margin = component.margin
+        margins = component.margins
 
         switch component.keyboardType {
         case .numeric: keyboardType = .numberPad

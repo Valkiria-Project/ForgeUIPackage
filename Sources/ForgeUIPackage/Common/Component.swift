@@ -15,7 +15,7 @@ extension Component {
 
 let componentTypes: [String: Component.Type] = [
     "LABEL": LabelComponent.self,
-    "TEXTFIELD": TextFieldComponent.self,
+    "TEXT_FIELD": TextFieldComponent.self,
     "BUTTON": ButtonComponent.self
 ]
 
