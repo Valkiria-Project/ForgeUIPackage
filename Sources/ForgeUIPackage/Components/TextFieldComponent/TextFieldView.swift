@@ -9,9 +9,13 @@ import SwiftUI
 
 public struct TextFieldView: View {
 
-    public private(set) var viewModel: TextFieldViewModel
+    private var viewModel: TextFieldViewModel
     @State public private(set) var inputText: String = ""
     @State public private(set) var errorMessage: String? = "Error Message"
+
+    public init(viewModel: TextFieldViewModel) {
+        self.viewModel = viewModel
+    }
 
     public var body: some View {
         ZStack {

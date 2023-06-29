@@ -9,7 +9,11 @@ import SwiftUI
 
 public struct LabelView: View {
 
-    public private(set) var viewModel: LabelVieModel
+    private var viewModel: LabelVieModel
+
+    public init(viewModel: LabelVieModel) {
+        self.viewModel = viewModel
+    }
 
     public var body: some View {
         Text(viewModel.text)
