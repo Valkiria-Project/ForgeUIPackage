@@ -15,11 +15,11 @@ public enum ButtonStyle: String, Codable {
 
 public struct ButtonComponent: Component, Codable, Identifiable {
     public let id: UUID
-    let label: String?
-    let icon: String?
-    let style: ButtonStyle
-    let onClick: Action
-    let margin: Margin
+    public private(set) var label: String?
+    public private(set) var icon: String?
+    public private(set) var style: ButtonStyle
+    public private(set) var onClick: Action
+    public private(set) var margin: Margin
 
     public init(label: String?, icon: String?, style: ButtonStyle, onClick: Action, margin: Margin) {
         self.id = UUID()
