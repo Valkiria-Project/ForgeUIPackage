@@ -22,10 +22,10 @@ public enum KeyboardType: String, Codable {
 
 public struct TextFieldComponent: Component, Codable, Identifiable {
     public let id: UUID
-    let hint: String
-    let regex: String
-    let keyboardType: KeyboardType
-    let margin: Margin
+    public private(set) var hint: String
+    public private(set) var regex: String
+    public private(set) var keyboardType: KeyboardType
+    public private(set) var margin: Margin
 
     public init(hint: String, regex: String, keyboardType: KeyboardType, margin: Margin) {
         self.id = UUID()

@@ -15,9 +15,9 @@ public enum LabelStyle: String, Codable {
 
 public struct LabelComponent: Component, Codable, Identifiable {
     public let id: UUID
-    let text: String
-    let margin: Margin
-    let style: LabelStyle
+    public private(set) var text: String
+    public private(set) var margin: Margin
+    public private(set) var style: LabelStyle
 
     public init(text: String, style: LabelStyle, margin: Margin) {
         self.id = UUID()
