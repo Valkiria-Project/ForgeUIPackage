@@ -19,7 +19,7 @@ public struct LabelComponent: Component, Codable, Identifiable {
     let margin: Margin
     let style: LabelStyle
 
-    init(text: String, style: LabelStyle, margin: Margin) {
+    public init(text: String, style: LabelStyle, margin: Margin) {
         self.id = UUID()
         self.text = text
         self.margin = margin

@@ -13,5 +13,9 @@ public enum ActionType: String, Codable {
 }
 
 public struct Action: Codable {
-    let type: ActionType
+    public let type: ActionType
+
+    public init(type: ActionType) {
+        self.type = type
+    }
 }
