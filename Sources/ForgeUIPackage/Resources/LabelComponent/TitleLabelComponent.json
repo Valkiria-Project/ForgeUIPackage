@@ -2,7 +2,7 @@
     "type": "LABEL",
     "text": "Title Label",
     "style": "TITLE",
-    "margin": {
+    "margins": {
         "top": 0,
         "left": 0,
         "right": 0,
