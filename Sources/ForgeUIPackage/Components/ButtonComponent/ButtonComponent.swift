@@ -7,13 +7,14 @@
 
 import Foundation
 
-public enum ButtonStyle: String, Codable {
-    case loud = "LOUD"
-    case quiet = "QUIET"
-    case secondary = "SECONDARY"
-}
-
 public struct ButtonComponent: Component, Codable, Identifiable {
+
+    public enum ButtonStyle: String, Codable {
+        case loud = "LOUD"
+        case quiet = "QUIET"
+        case secondary = "SECONDARY"
+    }
+
     public let id: UUID
     public private(set) var label: String?
     public private(set) var icon: String?
