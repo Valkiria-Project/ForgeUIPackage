@@ -9,26 +9,24 @@ import Foundation
 
 public protocol Component {}
 
-public typealias ForgeComponent = Codable & Component & Identifiable
-
 let componentTypes: [String: Component.Type] = [
     "LABEL": LabelComponent.self,
     "TEXT_FIELD": TextFieldComponent.self,
     "BUTTON": ButtonComponent.self
 ]
 
-//public typealias CodableComponent = Codable & Component
+public typealias CodableComponent = Codable & Component
 
 public struct ComponentSerializer: Codable {
     enum CodingKeys: String, CodingKey {
         case type
     }
 
-    private let _component: any ForgeComponent
-    public var component: any ForgeComponent { _component }
+    private let _component: CodableComponent
+    public var component: CodableComponent { _component }
 
     public init(_ component: Component) throws {
-        guard let component = component as? (any ForgeComponent) else {
+        guard let component = component as? CodableComponent else {
             throw EncodingError.invalidValue(
                 component, .init(
                     codingPath: [],
@@ -43,7 +41,7 @@ public struct ComponentSerializer: Codable {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         let componentType = try keyedContainer.decode(String.self, forKey: .type)
 
-        guard let decodableType = componentTypes[componentType] as? any ForgeComponent.Type else {
+        guard let decodableType = componentTypes[componentType] as? CodableComponent.Type else {
             throw DecodingError.dataCorruptedError(
                 forKey: .type,
                 in: keyedContainer,
@@ -51,7 +49,7 @@ public struct ComponentSerializer: Codable {
             )
         }
 
-        self._component = try decodableType.init(from: decoder) as (any ForgeComponent)
+        self._component = try decodableType.init(from: decoder) as CodableComponent
     }
 
     public func encode(to encoder: Encoder) throws {
