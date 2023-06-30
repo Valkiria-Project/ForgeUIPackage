@@ -9,6 +9,8 @@ import Foundation
 
 public protocol Component {}
 
+public typealias IdentifiableComponent = Identifiable & Component
+
 let componentTypes: [String: Component.Type] = [
     "LABEL": LabelComponent.self,
     "TEXT_FIELD": TextFieldComponent.self,

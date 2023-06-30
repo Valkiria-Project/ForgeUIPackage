@@ -13,12 +13,14 @@ public enum LabelStyle: String, Codable {
     case heading = "HEADING"
 }
 
-public struct LabelComponent: Component, Codable {
+public struct LabelComponent: Component, Codable, Identifiable {
+    public let id: UUID
     public private(set) var text: String
     public private(set) var margins: Margin
     public private(set) var style: LabelStyle
 
     public init(text: String, style: LabelStyle, margins: Margin) {
+        self.id = UUID()
         self.text = text
         self.margins = margins
         self.style = style
@@ -26,6 +28,7 @@ public struct LabelComponent: Component, Codable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = UUID()
         self.text = try container.decode(String.self, forKey: .text)
         self.margins = try container.decode(Margin.self, forKey: .margins)
         self.style = try container.decode(LabelStyle.self, forKey: .style)
