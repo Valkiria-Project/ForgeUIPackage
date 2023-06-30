@@ -11,7 +11,7 @@ public class ButtonViewModel {
 
     let label: String?
     var icon: String?
-    let style: ButtonStyle
+    let style: ButtonComponent.Style
     let action: Action
     let margins: Margin
 

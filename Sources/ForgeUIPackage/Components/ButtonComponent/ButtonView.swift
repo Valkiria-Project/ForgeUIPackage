@@ -128,7 +128,7 @@ struct SecondaryTextAndIconButtonView_Previews: PreviewProvider {
 }
 
 fileprivate extension ButtonView {
-    func style(_ style: ButtonStyle) -> some View {
+    func style(_ style: ButtonComponent.Style) -> some View {
         switch style {
         case .loud:
             return self
