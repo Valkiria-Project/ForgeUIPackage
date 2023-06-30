@@ -20,15 +20,13 @@ public enum KeyboardType: String, Codable {
 //    case fingerprint = "FINGERPRINT"
 //}
 
-public struct TextFieldComponent: Component, Codable, Identifiable {
-    public let id: UUID
+public struct TextFieldComponent: Component, Codable {
     public private(set) var hint: String
     public private(set) var regex: String
     public private(set) var keyboardType: KeyboardType
     public private(set) var margins: Margin
 
     public init(hint: String, regex: String, keyboardType: KeyboardType, margins: Margin) {
-        self.id = UUID()
         self.hint = hint
         self.regex = regex
         self.keyboardType = keyboardType
@@ -37,7 +35,6 @@ public struct TextFieldComponent: Component, Codable, Identifiable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = UUID()
         self.hint = try container.decode(String.self, forKey: .hint)
         self.regex = try container.decode(String.self, forKey: .regex)
         self.keyboardType = try container.decode(KeyboardType.self, forKey: .keyboardType)
