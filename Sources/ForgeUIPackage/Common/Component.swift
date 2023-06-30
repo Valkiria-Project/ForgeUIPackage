@@ -9,7 +9,7 @@ import Foundation
 
 public protocol Component {}
 
-extension Component {
+public extension Component {
     var id: UUID { UUID() }
 }
 

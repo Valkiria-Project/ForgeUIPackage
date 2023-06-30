@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ButtonComponent: Component, Codable, Identifiable {
+public struct ButtonComponent: Component, Codable {
 
     public enum Style: String, Codable {
         case loud = "LOUD"
@@ -15,7 +15,6 @@ public struct ButtonComponent: Component, Codable, Identifiable {
         case secondary = "SECONDARY"
     }
 
-    public let id: UUID
     public private(set) var label: String?
     public private(set) var icon: String?
     public private(set) var style: Style
@@ -23,7 +22,6 @@ public struct ButtonComponent: Component, Codable, Identifiable {
     public private(set) var margins: Margin
 
     public init(label: String?, icon: String?, style: Style, onClick: Action, margins: Margin) {
-        self.id = UUID()
         self.label = label
         self.icon = icon
         self.style = style
@@ -33,7 +31,6 @@ public struct ButtonComponent: Component, Codable, Identifiable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = UUID()
         self.label = try container.decodeIfPresent(String.self, forKey: .label)
         self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
         self.style = try container.decode(Style.self, forKey: .style)
