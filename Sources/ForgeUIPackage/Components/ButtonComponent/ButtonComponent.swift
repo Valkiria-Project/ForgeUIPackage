@@ -14,7 +14,7 @@ public struct ButtonComponent: Component, Codable {
         case quiet = "QUIET"
         case secondary = "SECONDARY"
     }
-
+    
     public private(set) var label: String?
     public private(set) var icon: String?
     public private(set) var style: Style

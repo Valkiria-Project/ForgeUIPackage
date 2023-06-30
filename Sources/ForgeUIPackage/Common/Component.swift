@@ -9,10 +9,6 @@ import Foundation
 
 public protocol Component {}
 
-public extension Component {
-    var id: UUID { UUID() }
-}
-
 let componentTypes: [String: Component.Type] = [
     "LABEL": LabelComponent.self,
     "TEXT_FIELD": TextFieldComponent.self,
