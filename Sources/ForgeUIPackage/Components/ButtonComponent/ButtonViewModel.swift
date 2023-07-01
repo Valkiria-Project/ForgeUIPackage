@@ -9,11 +9,11 @@ import Foundation
 
 public class ButtonViewModel {
 
-    let label: String?
-    var icon: String?
-    let style: ButtonComponent.Style
-    let action: Action
-    let margins: Margin
+    public let label: String?
+    public let icon: String?
+    public let style: ButtonComponent.Style
+    public let action: Action
+    public let margins: Margin
 
     public init(component: ButtonComponent) {
         label = component.label

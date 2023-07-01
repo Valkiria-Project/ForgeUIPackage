@@ -7,22 +7,22 @@
 
 import Foundation
 
-public enum LabelStyle: String, Codable {
-    case body = "BODY"
-    case title = "TITLE"
-    case heading = "HEADING"
-}
-
 public class LabelComponent: Component {
+    public enum Style: String, Codable {
+        case body = "BODY"
+        case title = "TITLE"
+        case heading = "HEADING"
+    }
+
     public private(set) var text: String
-    public private(set) var style: LabelStyle
+    public private(set) var style: Style
     public private(set) var margins: Margin
 
     private enum CodingKeys: String, CodingKey {
         case text, margins, style
     }
 
-    public init(text: String, style: LabelStyle, margins: Margin) {
+    public init(text: String, style: Style, margins: Margin) {
         self.text = text
         self.style = style
         self.margins = margins
@@ -33,7 +33,7 @@ public class LabelComponent: Component {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.text = try container.decode(String.self, forKey: .text)
         self.margins = try container.decode(Margin.self, forKey: .margins)
-        self.style = try container.decode(LabelStyle.self, forKey: .style)
+        self.style = try container.decode(Style.self, forKey: .style)
         super.init()
     }
 }

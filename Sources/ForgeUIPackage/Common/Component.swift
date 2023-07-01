@@ -7,19 +7,28 @@
 
 import Foundation
 
-public enum ComponentType: String, Codable {
-    case label = "LABEL"
-    case textField = "TEXT_FIELD"
-    case button = "BUTTON"
-}
-
 public class Component: Identifiable, Codable {
+//    public enum ComponentType: String, Codable {
+//        case label = "LABEL"
+//        case textField = "TEXT_FIELD"
+//        case button = "BUTTON"
+//    }
 //    let type: ComponentType
 //    let margins: Margin
 //
 //    init(margins: Margin) {
 //        self.type = type
 //        self.margins = margins
+//    }
+
+//    public let type: ComponentType
+//
+//    private enum CodingKeys: String, CodingKey {
+//        case type = "TYPE"
+//    }
+//    public required init(from decoder: Decoder) throws {
+//        let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
+//        let type = try keyedContainer.decode(ComponentType.self, forKey: .type)
 //    }
 }
 
