@@ -13,5 +13,10 @@ final class LabelComponentTests: XCTestCase {
     func testComponentIsDecodable() throws {
         _ = try LabelComponent.titleExample()
     }
+
+    func testDecode() throws {
+        let labelComponent: Component = try SerializationHelper.fromJsonResource(named: "TitleLabelComponent")
+        XCTAssertNoThrow(labelComponent as! LabelComponent)
+    }
 }
 
