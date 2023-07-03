@@ -24,18 +24,21 @@ public class TextFieldComponent: Component {
     public private(set) var hint: String
     public private(set) var regex: String
     public private(set) var keyboardType: KeyboardType
-//    public private(set) var margins: Margin
 
-    public init(hint: String, regex: String, keyboardType: KeyboardType, margins: Margin) {
+    public init(
+        hint: String,
+        regex: String,
+        keyboardType: KeyboardType,
+        margins: Margin
+    ) {
         self.hint = hint
         self.regex = regex
         self.keyboardType = keyboardType
-//        self.margins = margins
-        super.init(type: .textField, margins: margins)
+        super.init(margins: margins)
     }
 
     private enum CodingKeys: String, CodingKey {
-        case hint, regex, keyboardType, margins
+        case hint, regex, keyboardType
     }
 
     public required init(from decoder: Decoder) throws {
@@ -43,7 +46,6 @@ public class TextFieldComponent: Component {
         self.hint = try container.decode(String.self, forKey: .hint)
         self.regex = try container.decode(String.self, forKey: .regex)
         self.keyboardType = try container.decode(KeyboardType.self, forKey: .keyboardType)
-//        self.margins = try container.decode(Margin.self, forKey: .margins)
         try super.init(from: decoder)
     }
 }

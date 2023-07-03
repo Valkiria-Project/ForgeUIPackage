@@ -16,23 +16,20 @@ public class LabelComponent: Component {
 
     public private(set) var text: String
     public private(set) var style: Style
-//    public private(set) var margins: Margin
 
     private enum CodingKeys: String, CodingKey {
-        case text, margins, style
+        case text, style
     }
 
     public init(text: String, style: Style, margins: Margin) {
         self.text = text
         self.style = style
-//        self.margins = margins
-        super.init(type: .label, margins: margins)
+        super.init(margins: margins)
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.text = try container.decode(String.self, forKey: .text)
-//        self.margins = try container.decode(Margin.self, forKey: .margins)
         self.style = try container.decode(Style.self, forKey: .style)
         try super.init(from: decoder)
     }

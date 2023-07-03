@@ -9,36 +9,26 @@ import Foundation
 
 public class Component: Identifiable, Codable {
     public let id: UUID
+    public let margins: Margin
 
-    public enum ComponentType: String, Codable {
-        case label = "LABEL"
-        case textField = "TEXT_FIELD"
-        case button = "BUTTON"
+    enum CodingKeys: CodingKey {
+        case margins, id
     }
 
-    private enum CodingKeys: String, CodingKey {
-        case type, margins
-    }
-
-    public let type: ComponentType
-    let margins: Margin
-
-    init(type: ComponentType, margins: Margin) {
+    public init(margins: Margin) {
         self.id = UUID()
-        self.type = type
         self.margins = margins
     }
 
     public required init(from decoder: Decoder) throws {
-        let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = UUID()
-        self.type = try keyedContainer.decode(ComponentType.self, forKey: .type)
-        self.margins = try keyedContainer.decode(Margin.self, forKey: .margins)
+        self.margins = try container.decode(Margin.self, forKey: .margins)
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(type, forKey: .type)
-        try container.encode(margins, forKey: .margins)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.margins, forKey: .margins)
     }
 }

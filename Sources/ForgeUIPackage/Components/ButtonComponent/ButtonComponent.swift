@@ -19,10 +19,9 @@ public class ButtonComponent: Component {
     public private(set) var icon: String?
     public private(set) var style: Style
     public private(set) var onClick: Action
-//    public private(set) var margins: Margin
 
     private enum CodingKeys: String, CodingKey {
-        case label, icon, style, onClick, margins
+        case label, icon, style, onClick
     }
 
     public init(label: String?, icon: String?, style: Style, onClick: Action, margins: Margin) {
@@ -30,7 +29,7 @@ public class ButtonComponent: Component {
         self.icon = icon
         self.style = style
         self.onClick = onClick
-        super.init(type: .button, margins: margins)
+        super.init(margins: margins)
     }
 
     public required init(from decoder: Decoder) throws {
@@ -39,7 +38,6 @@ public class ButtonComponent: Component {
         self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
         self.style = try container.decode(Style.self, forKey: .style)
         self.onClick = try container.decode(Action.self, forKey: .onClick)
-//        self.margins = try container.decode(Margin.self, forKey: .margins)
         try super.init(from: decoder)
     }
 }
