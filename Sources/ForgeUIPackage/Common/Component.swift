@@ -7,65 +7,28 @@
 
 import Foundation
 
-public protocol Component {}
+public class Component: Identifiable, Codable {
+    public let id: UUID
+    public let margins: Margin
 
-let componentTypes: [String: Component.Type] = [
-    "LABEL": LabelComponent.self,
-    "TEXT_FIELD": TextFieldComponent.self,
-    "BUTTON": ButtonComponent.self
-]
-
-public typealias CodableComponent = Codable & Component
-
-public struct ComponentSerializer: Codable {
-    enum CodingKeys: String, CodingKey {
-        case type
+    enum CodingKeys: CodingKey {
+        case margins, id
     }
 
-    private let _component: CodableComponent
-    public var component: CodableComponent { _component }
-
-    public init(_ component: Component) throws {
-        guard let component = component as? CodableComponent else {
-            throw EncodingError.invalidValue(
-                component, .init(
-                    codingPath: [],
-                    debugDescription: "\(type(of: component)) is not encodable."
-                )
-            )
-        }
-        self._component = component
+    public init(margins: Margin) {
+        self.id = UUID()
+        self.margins = margins
     }
 
-    public init(from decoder: Decoder) throws {
-        let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
-        let componentType = try keyedContainer.decode(String.self, forKey: .type)
-
-        guard let decodableType = componentTypes[componentType] as? CodableComponent.Type else {
-            throw DecodingError.dataCorruptedError(
-                forKey: .type,
-                in: keyedContainer,
-                debugDescription: "\(componentType) is not registered in componentTypes or does not conform to Decodable."
-            )
-        }
-
-        self._component = try decodableType.init(from: decoder) as CodableComponent
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = UUID()
+        self.margins = try container.decode(Margin.self, forKey: .margins)
     }
 
     public func encode(to encoder: Encoder) throws {
-        guard let type = componentTypes.first(where: { $1 == type(of: _component) })?.key else {
-            let singleValueContainer = encoder.singleValueContainer()
-            throw EncodingError.invalidValue(
-                _component, .init(
-                    codingPath: singleValueContainer.codingPath,
-                    debugDescription: "\(type(of: _component)) is not registered or does not conform to Encodable."
-                )
-            )
-        }
-
-        try _component.encode(to: encoder)
-
-        var keyedContainer = encoder.container(keyedBy: CodingKeys.self)
-        try keyedContainer.encode(type, forKey: .type)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.margins, forKey: .margins)
     }
 }

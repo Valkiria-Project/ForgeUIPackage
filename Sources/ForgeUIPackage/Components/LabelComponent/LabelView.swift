@@ -54,7 +54,7 @@ struct BodyLabelView_Previews: PreviewProvider {
 }
 
 fileprivate extension LabelView {
-    func style(_ style: LabelStyle) -> some View {
+    func style(_ style: LabelComponent.Style) -> some View {
         switch style {
         case .body:
             return self

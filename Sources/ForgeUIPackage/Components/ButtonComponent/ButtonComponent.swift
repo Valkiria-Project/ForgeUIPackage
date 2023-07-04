@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ButtonComponent: Component, Codable {
+public class ButtonComponent: Component {
 
     public enum Style: String, Codable {
         case loud = "LOUD"
@@ -19,69 +19,72 @@ public struct ButtonComponent: Component, Codable {
     public private(set) var icon: String?
     public private(set) var style: Style
     public private(set) var onClick: Action
-    public private(set) var margins: Margin
+
+    private enum CodingKeys: String, CodingKey {
+        case label, icon, style, onClick
+    }
 
     public init(label: String?, icon: String?, style: Style, onClick: Action, margins: Margin) {
         self.label = label
         self.icon = icon
         self.style = style
         self.onClick = onClick
-        self.margins = margins
+        super.init(margins: margins)
     }
 
-    public init(from decoder: Decoder) throws {
+    public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.label = try container.decodeIfPresent(String.self, forKey: .label)
         self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
         self.style = try container.decode(Style.self, forKey: .style)
         self.onClick = try container.decode(Action.self, forKey: .onClick)
-        self.margins = try container.decode(Margin.self, forKey: .margins)
+        try super.init(from: decoder)
     }
 }
 
 extension ButtonComponent {
 
-    static func quietIconOnlyButtonExample() throws -> Self {
+    static func quietIconOnlyButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "QuietIconButtonComponent")
         return component
     }
 
-    static func quietTextAndIconButtonExample() throws -> Self {
+    static func quietTextAndIconButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "QuietTextAndIconButtonComponent")
         return component
     }
 
-    static func quietTextOnlyButtonExample() throws -> Self {
+    static func quietTextOnlyButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "QuietTextButtonComponent")
         return component
     }
 
-    static func loudIconOnlyButtonExample() throws -> Self {
+    static func loudIconOnlyButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "LoudIconButtonComponent")
         return component
     }
 
-    static func loudTextAndIconButtonExample() throws -> Self {
+    static func loudTextAndIconButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "LoudTextAndIconButtonComponent")
         return component
     }
 
-    static func loudTextOnlyButtonExample() throws -> Self {
+    static func loudTextOnlyButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "LoudTextButtonComponent")
         return component
     }
 
-    static func secondaryIconOnlyButtonExample() throws -> Self {
+    static func secondaryIconOnlyButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "SecondaryIconButtonComponent")
         return component
     }
 
-    static func secondaryTextAndIconButtonExample() throws -> Self {
+    static func secondaryTextAndIconButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "SecondaryTextAndIconButtonComponent")
         return component
     }
 
-    static func secondaryTextOnlyButtonExample() throws -> Self {
+    static func secondaryTextOnlyButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "SecondaryTextButtonComponent")
         return component
     }

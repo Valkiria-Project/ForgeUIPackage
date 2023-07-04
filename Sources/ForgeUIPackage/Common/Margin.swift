@@ -8,10 +8,10 @@
 import Foundation
 
 public struct Margin: Codable {
-    let top: CGFloat
-    let left: CGFloat
-    let right: CGFloat
-    let bottom: CGFloat
+    public let top: CGFloat
+    public let left: CGFloat
+    public let right: CGFloat
+    public let bottom: CGFloat
 
     init() {
         top = 0

@@ -20,45 +20,53 @@ public enum KeyboardType: String, Codable {
 //    case fingerprint = "FINGERPRINT"
 //}
 
-public struct TextFieldComponent: Component, Codable {
+public class TextFieldComponent: Component {
     public private(set) var hint: String
     public private(set) var regex: String
     public private(set) var keyboardType: KeyboardType
-    public private(set) var margins: Margin
 
-    public init(hint: String, regex: String, keyboardType: KeyboardType, margins: Margin) {
+    public init(
+        hint: String,
+        regex: String,
+        keyboardType: KeyboardType,
+        margins: Margin
+    ) {
         self.hint = hint
         self.regex = regex
         self.keyboardType = keyboardType
-        self.margins = margins
+        super.init(margins: margins)
     }
 
-    public init(from decoder: Decoder) throws {
+    private enum CodingKeys: String, CodingKey {
+        case hint, regex, keyboardType
+    }
+
+    public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.hint = try container.decode(String.self, forKey: .hint)
         self.regex = try container.decode(String.self, forKey: .regex)
         self.keyboardType = try container.decode(KeyboardType.self, forKey: .keyboardType)
-        self.margins = try container.decode(Margin.self, forKey: .margins)
+        try super.init(from: decoder)
     }
 }
 
 extension TextFieldComponent {
-    static func emailTextField() throws -> Self {
+    static func emailTextField() throws -> TextFieldComponent {
         let textFieldComponent: TextFieldComponent = try SerializationHelper.fromJsonResource(named: "EmailTextFieldComponent")
         return textFieldComponent
     }
 
-    static func nameTextField() throws -> Self {
+    static func nameTextField() throws -> TextFieldComponent {
         let textFieldComponent: TextFieldComponent = try SerializationHelper.fromJsonResource(named: "NameTextFieldComponent")
         return textFieldComponent
     }
 
-    static func numericTextField() throws -> Self {
+    static func numericTextField() throws -> TextFieldComponent {
         let textFieldComponent: TextFieldComponent = try SerializationHelper.fromJsonResource(named: "NumericTextFieldComponent")
         return textFieldComponent
     }
 
-    static func phoneTextField() throws -> Self {
+    static func phoneTextField() throws -> TextFieldComponent {
         let textFieldComponent: TextFieldComponent = try SerializationHelper.fromJsonResource(named: "PhoneTextFieldComponent")
         return textFieldComponent
     }

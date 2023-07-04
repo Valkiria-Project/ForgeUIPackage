@@ -9,11 +9,10 @@ import Foundation
 import SwiftUI
 
 public class TextFieldViewModel {
-
-    let hint: String
-    let regex: String
-    let keyboardType: UIKeyboardType
-    let margins: Margin
+    public let hint: String
+    public let regex: String
+    public let keyboardType: UIKeyboardType
+    public let margins: Margin
 
     public init(component: TextFieldComponent) {
         hint = component.hint

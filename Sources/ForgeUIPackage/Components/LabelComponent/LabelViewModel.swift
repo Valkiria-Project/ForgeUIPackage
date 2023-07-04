@@ -8,9 +8,9 @@
 import Foundation
 
 public class LabelVieModel {
-    let text: String
-    let margins: Margin
-    let style: LabelStyle
+    public let text: String
+    public let margins: Margin
+    public let style: LabelComponent.Style
 
     public init(component: LabelComponent) {
         text = component.text
