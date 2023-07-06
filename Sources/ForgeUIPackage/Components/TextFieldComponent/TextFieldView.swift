@@ -29,9 +29,9 @@ public struct TextFieldView: View {
                 TextField(viewModel.icon == nil ? "" : viewModel.hint, text: $viewModel.inputText)
                     .keyboardType(viewModel.keyboardType)
                     .frame(height: 40)
-                    .border(Color.red)
-                if let errorMessage = viewModel.errorMessage {
-                    Text(errorMessage)
+                    .border(viewModel.showError ? Color.red : Color.black)
+                if viewModel.showError {
+                    Text(viewModel.errorMessage)
                         .foregroundColor(Color.red)
                         .padding([.leading])
                 }
