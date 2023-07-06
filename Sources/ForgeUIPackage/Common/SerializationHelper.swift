@@ -24,9 +24,9 @@ enum BundleError: Error {
     case resourceNotFound
 }
 
-struct SerializationHelper {
-    static func fromJsonResource<T: Codable>(named: String) throws -> T {
+extension Component {
+    static func fromJsonResource(named: String) throws -> Self {
         let data = try Bundle.bundleResources.loadJsonData(named: named)
-        return try JSONDecoder().decode(T.self, from: data)
+        return try JSONDecoder().decode(Self.self, from: data)
     }
 }

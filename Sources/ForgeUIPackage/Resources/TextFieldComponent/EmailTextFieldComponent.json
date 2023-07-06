@@ -2,6 +2,7 @@
     "type": "TEXTFIELD",
     "keyboardType": "EMAIL",
     "hint": "Email hint placeholder",
+    "icon": "person.circle",
     "regex": "",
     "margins": {
         "top": 0,

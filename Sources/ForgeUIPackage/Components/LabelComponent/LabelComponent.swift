@@ -37,17 +37,17 @@ public class LabelComponent: Component {
 
 extension LabelComponent {
     static func titleExample() throws -> LabelComponent {
-        let labelComponent: LabelComponent = try SerializationHelper.fromJsonResource(named: "TitleLabelComponent")
+        let labelComponent: LabelComponent = try fromJsonResource(named: "TitleLabelComponent")
         return labelComponent
     }
 
     static func headingExample() throws -> LabelComponent {
-        let labelComponent: LabelComponent = try SerializationHelper.fromJsonResource(named: "HeadingLabelComponent")
+        let labelComponent: LabelComponent = try fromJsonResource(named: "HeadingLabelComponent")
         return labelComponent
     }
 
     static func bodyExample() throws -> LabelComponent {
-        let labelComponent: LabelComponent = try SerializationHelper.fromJsonResource(named: "BodyLabelComponent")
+        let labelComponent: LabelComponent = try fromJsonResource(named: "BodyLabelComponent")
         return labelComponent
     }
 }

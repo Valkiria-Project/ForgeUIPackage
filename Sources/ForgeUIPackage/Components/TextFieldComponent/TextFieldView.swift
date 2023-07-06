@@ -9,39 +9,32 @@ import SwiftUI
 
 public struct TextFieldView: View {
 
-    private var viewModel: TextFieldViewModel
-    @State public private(set) var inputText: String = ""
-    @State public private(set) var errorMessage: String? = "Error Message"
+    @ObservedObject private var viewModel: TextFieldViewModel
 
     public init(viewModel: TextFieldViewModel) {
         self.viewModel = viewModel
     }
 
     public var body: some View {
-        ZStack {
+        HStack {
+            if let icon = viewModel.icon {
+                Image(systemName: icon)
+                    .resizable()
+                    .frame(width: 32, height: 32)
+            }
             VStack(alignment: .leading) {
-                TextField("", text: $inputText)
+                if viewModel.icon == nil {
+                    Text(viewModel.hint)
+                }
+                TextField(viewModel.icon == nil ? "" : viewModel.hint, text: $viewModel.inputText)
                     .keyboardType(viewModel.keyboardType)
                     .frame(height: 40)
-                    .border(errorMessage != nil ? Color.red : Color.gray, width: 2)
-                if let errorMessage {
+                    .border(Color.red)
+                if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
                         .foregroundColor(Color.red)
                         .padding([.leading])
                 }
-            }
-
-            HStack {
-                ZStack {
-                    Color(.white)
-                    Text(viewModel.hint)
-                        .foregroundColor(.white)
-                        .colorMultiply(.black)
-                        .layoutPriority(1)
-                }
-                .padding([.leading], 15.0)
-                .padding([.bottom], errorMessage != nil ? 68 : 42)
-                Spacer()
             }
         }
     }

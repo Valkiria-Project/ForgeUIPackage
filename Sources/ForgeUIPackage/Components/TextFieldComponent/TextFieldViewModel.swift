@@ -8,14 +8,18 @@
 import Foundation
 import SwiftUI
 
-public class TextFieldViewModel {
+public class TextFieldViewModel: ObservableObject {
     public let hint: String
     public let regex: String
     public let keyboardType: UIKeyboardType
     public let margins: Margin
+    public let icon: String?
+    @Published public var inputText: String = ""
+    @Published public var errorMessage: String?
 
     public init(component: TextFieldComponent) {
         hint = component.hint
+        icon = component.icon
         regex = component.regex
         margins = component.margins
 
