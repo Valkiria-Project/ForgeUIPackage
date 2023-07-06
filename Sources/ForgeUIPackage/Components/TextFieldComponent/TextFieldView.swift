@@ -18,7 +18,7 @@ public struct TextFieldView: View {
     public var body: some View {
         HStack {
             if let icon = viewModel.icon {
-                Image(systemName: icon)
+                Image(icon)
                     .resizable()
                     .frame(width: 32, height: 32)
             }
