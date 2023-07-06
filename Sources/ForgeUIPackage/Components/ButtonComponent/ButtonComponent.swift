@@ -45,47 +45,47 @@ public class ButtonComponent: Component {
 extension ButtonComponent {
 
     static func quietIconOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "QuietIconButtonComponent")
+        let component: ButtonComponent = try fromJsonResource(named: "QuietIconButtonComponent")
         return component
     }
 
     static func quietTextAndIconButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "QuietTextAndIconButtonComponent")
+        let component: ButtonComponent = try fromJsonResource(named: "QuietTextAndIconButtonComponent")
         return component
     }
 
     static func quietTextOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "QuietTextButtonComponent")
+        let component: ButtonComponent = try fromJsonResource(named: "QuietTextButtonComponent")
         return component
     }
 
     static func loudIconOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "LoudIconButtonComponent")
+        let component: ButtonComponent = try fromJsonResource(named: "LoudIconButtonComponent")
         return component
     }
 
     static func loudTextAndIconButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "LoudTextAndIconButtonComponent")
+        let component: ButtonComponent = try fromJsonResource(named: "LoudTextAndIconButtonComponent")
         return component
     }
 
     static func loudTextOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "LoudTextButtonComponent")
+        let component: ButtonComponent = try fromJsonResource(named: "LoudTextButtonComponent")
         return component
     }
 
     static func secondaryIconOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "SecondaryIconButtonComponent")
+        let component: ButtonComponent = try fromJsonResource(named: "SecondaryIconButtonComponent")
         return component
     }
 
     static func secondaryTextAndIconButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "SecondaryTextAndIconButtonComponent")
+        let component: ButtonComponent = try fromJsonResource(named: "SecondaryTextAndIconButtonComponent")
         return component
     }
 
     static func secondaryTextOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try SerializationHelper.fromJsonResource(named: "SecondaryTextButtonComponent")
+        let component: ButtonComponent = try fromJsonResource(named: "SecondaryTextButtonComponent")
         return component
     }
 }
