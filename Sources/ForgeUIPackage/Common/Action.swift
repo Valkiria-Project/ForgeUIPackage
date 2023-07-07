@@ -10,6 +10,8 @@ import Foundation
 public enum ActionType: String, Codable {
     case dismiss = "DISMISS"
     case deviceAuth = "DEVICE_AUTH"
+    case login = "LOGIN"
+    case forgotPassword = "FORGOT_PASSWORD"
 }
 
 public struct Action: Codable {
