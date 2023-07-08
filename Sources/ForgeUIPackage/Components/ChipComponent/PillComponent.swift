@@ -1,5 +1,5 @@
 //
-//  PillComponent.swift
+//  ChipComponent.swift
 //  
 //
 //  Created by Diego Alejandro Villa Cardenas on 8/07/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class PillComponent: Component {
+public class ChipComponent: Component {
 
     public let text: String
     public let icon: String
@@ -30,9 +30,9 @@ public class PillComponent: Component {
     }
 }
 
-extension PillComponent {
-    static func example() throws -> PillComponent {
-        let component: PillComponent = try fromJsonResource(named: "PillComponent")
+extension ChipComponent {
+    static func example() throws -> ChipComponent {
+        let component: ChipComponent = try fromJsonResource(named: "ChipComponent")
         return component
     }
 }

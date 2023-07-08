@@ -44,6 +44,6 @@ final class ComponentsTests: XCTestCase {
     }
 
     func testPillCodableComponent() throws {
-        XCTAssertNoThrow(try PillComponent.example())
+        XCTAssertNoThrow(try ChipComponent.example())
     }
 }

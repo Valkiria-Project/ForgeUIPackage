@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-public struct PillView: View {
+public struct ChipView: View {
 
-    let component: PillComponent
+    let component: ChipComponent
 
-    public init(component: PillComponent) {
+    public init(component: ChipComponent) {
         self.component = component
     }
 
@@ -26,9 +26,9 @@ public struct PillView: View {
     }
 }
 
-struct PillView_Previews: PreviewProvider {
+struct ChipView_Previews: PreviewProvider {
     static var previews: some View {
-        PillView(
+        ChipView(
             component: .init(
                 text: "123",
                 icon: "vehicle",
