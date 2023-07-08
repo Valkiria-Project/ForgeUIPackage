@@ -14,6 +14,7 @@ public class ButtonViewModel {
     public let style: ButtonComponent.Style
     public let action: Action
     public let margins: Margin
+    public var buttonAction: (() -> Void)?
 
     public init(component: ButtonComponent) {
         label = component.label

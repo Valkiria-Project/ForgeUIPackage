@@ -2,9 +2,7 @@
     "type": "BUTTON",
     "label": "CANCELAR",
     "style": "SECONDARY",
-    "onClick": {
-        "type": "DISMISS"
-    },
+    "onClick": "DISMISS",
     "margins": {
         "top": 0,
         "left": 0,

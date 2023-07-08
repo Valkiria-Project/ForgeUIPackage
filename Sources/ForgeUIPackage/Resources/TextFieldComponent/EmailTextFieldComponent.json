@@ -1,5 +1,6 @@
 {
     "type": "TEXTFIELD",
+    "textfield_identifier": "EMAIL",
     "keyboardType": "EMAIL",
     "hint": "Email hint placeholder",
     "icon": "person.circle",

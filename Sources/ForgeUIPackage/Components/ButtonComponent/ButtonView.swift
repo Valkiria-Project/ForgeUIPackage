@@ -17,7 +17,7 @@ public struct ButtonView: View {
 
     public var body: some View {
         Button {
-            // TODO: Define how to handle actions
+            viewModel.buttonAction?()
         } label: {
             if let icon = viewModel.icon {
                 Image(systemName: icon)
@@ -26,6 +26,20 @@ public struct ButtonView: View {
                 Text(label)
             }
         }
+    }
+}
+
+struct MockActionButtonView_Previews: PreviewProvider {
+    static var previews: some View {
+        let component: ButtonComponent = try! .quietIconOnlyButtonExample()
+        let viewModel = ButtonViewModel(component: component) 
+        viewModel.buttonAction = {
+            print("Worked!")
+        }
+        return ButtonView(
+            viewModel: viewModel
+        )
+        .style(.quiet)
     }
 }
 

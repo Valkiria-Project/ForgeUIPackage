@@ -3,9 +3,7 @@
     "label": "Button label",
     "icon": "touchid",
     "style": "SECONDARY",
-    "onClick": {
-        "type": "DISMISS"
-    },
+    "onClick": "DISMISS",
     "margins": {
         "top": 0,
         "left": 0,
