@@ -26,12 +26,19 @@ public struct TextFieldView: View {
                 if viewModel.icon == nil {
                     Text(viewModel.hint)
                 }
-                TextField(viewModel.icon == nil ? "" : viewModel.hint, text: $viewModel.inputText)
-                    .keyboardType(viewModel.keyboardType)
-                    .frame(height: 40)
-                    .border(viewModel.showError ? Color.red : Color.black)
-                if viewModel.showError {
-                    Text(viewModel.errorMessage)
+                if viewModel.identifier == .passwordTextField {
+                    SecureField(viewModel.icon == nil ? "" : viewModel.hint, text: $viewModel.inputText)
+                        .keyboardType(viewModel.keyboardType)
+                        .frame(height: 40)
+                        .border(viewModel.showError ? Color.red : Color.black)
+                } else {
+                    TextField(viewModel.icon == nil ? "" : viewModel.hint, text: $viewModel.inputText)
+                        .keyboardType(viewModel.keyboardType)
+                        .frame(height: 40)
+                        .border(viewModel.showError ? Color.red : Color.black)
+                }
+                if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
                         .foregroundColor(Color.red)
                         .padding([.leading])
                 }

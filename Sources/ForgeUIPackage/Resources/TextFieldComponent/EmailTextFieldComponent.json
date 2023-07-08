@@ -4,7 +4,12 @@
     "keyboardType": "EMAIL",
     "hint": "Email hint placeholder",
     "icon": "person.circle",
-    "regex": "",
+    "validations": [
+        {
+            "regex": "^(?!\s*$).+",
+            "message": "El campo no debe estar vacío"
+        }
+    ],
     "margins": {
         "top": 0,
         "left": 0,

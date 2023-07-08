@@ -9,6 +9,7 @@ import Foundation
 
 public class ButtonViewModel {
 
+    public let identifier: Component.Identifier?
     public let label: String?
     public let icon: String?
     public let style: ButtonComponent.Style
@@ -17,6 +18,7 @@ public class ButtonViewModel {
     public var buttonAction: (() -> Void)?
 
     public init(component: ButtonComponent) {
+        identifier = component.identifier
         label = component.label
         icon = component.icon
         style = component.style

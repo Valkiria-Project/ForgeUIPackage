@@ -25,12 +25,19 @@ public class ButtonComponent: Component {
         case label, icon, style, onClick
     }
 
-    public init(label: String?, icon: String?, style: Style, onClick: Action, margins: Margin) {
+    public init(
+        identifier: Component.Identifier? = nil,
+        label: String?,
+        icon: String?,
+        style: Style,
+        onClick: Action,
+        margins: Margin
+    ) {
         self.label = label
         self.icon = icon
         self.style = style
         self.onClick = onClick
-        super.init(margins: margins)
+        super.init(identifier: identifier, margins: margins)
     }
 
     public required init(from decoder: Decoder) throws {

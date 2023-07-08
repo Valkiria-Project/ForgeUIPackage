@@ -13,19 +13,21 @@ public class TextFieldViewModel: ObservableObject {
     @Published public var inputText: String = ""
     @Published public var showError: Bool = false
 
+    public let identifier: Component.Identifier?
     public let hint: String
     public let keyboardType: UIKeyboardType
     public let margins: Margin
     public let icon: String?
-    public let errorMessage: String = "Invalid input" // Esto lo debería mandar back
+    public var errorMessage: String?
 
     let textValidator: TextValidator
 
     public init(component: TextFieldComponent) {
+        identifier = component.identifier
         hint = component.hint
         icon = component.icon
         margins = component.margins
-        textValidator = TextValidator(regex: component.regex)
+        textValidator = TextValidator(component.validations)
 
         switch component.keyboardType {
         case .numeric: keyboardType = .numberPad
@@ -36,7 +38,6 @@ public class TextFieldViewModel: ObservableObject {
     }
 
     public func validate() {
-        let isValid = textValidator.validate(text: inputText)
-        showError = !isValid
+        errorMessage = textValidator.validate(text: inputText)
     }
 }

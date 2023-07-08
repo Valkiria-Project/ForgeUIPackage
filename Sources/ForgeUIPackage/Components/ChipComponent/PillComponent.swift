@@ -16,10 +16,15 @@ public class ChipComponent: Component {
         case text, icon
     }
 
-    public init(text: String, icon: String, margins: Margin) {
+    public init(
+        identifier: Component.Identifier? = nil,
+        text: String,
+        icon: String,
+        margins: Margin
+    ) {
         self.text = text
         self.icon = icon
-        super.init(margins: margins)
+        super.init(identifier: identifier, margins: margins)
     }
 
     public required init(from decoder: Decoder) throws {

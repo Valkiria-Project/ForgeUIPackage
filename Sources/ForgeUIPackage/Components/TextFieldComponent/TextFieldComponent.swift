@@ -22,34 +22,34 @@ public enum KeyboardType: String, Codable {
 
 public class TextFieldComponent: Component {
     public private(set) var hint: String
-    public private(set) var regex: String
+    public private(set) var validations: [RegexValidation]
     public private(set) var keyboardType: KeyboardType
     public private(set) var icon: String?
 
     public init(
+        identifier: Component.Identifier? = nil,
         hint: String,
         icon: String? = nil,
-        regex: String,
+        validations: [RegexValidation],
         keyboardType: KeyboardType,
         margins: Margin
     ) {
-
         self.hint = hint
         self.icon = icon
-        self.regex = regex
+        self.validations = validations
         self.keyboardType = keyboardType
-        super.init(margins: margins)
+        super.init(identifier: identifier, margins: margins)
     }
 
     private enum CodingKeys: String, CodingKey {
-        case hint, regex, keyboardType, icon
+        case hint, validations, keyboardType, icon
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.hint = try container.decode(String.self, forKey: .hint)
         self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
-        self.regex = try container.decode(String.self, forKey: .regex)
+        self.validations = try container.decode([RegexValidation].self, forKey: .validations)
         self.keyboardType = try container.decode(KeyboardType.self, forKey: .keyboardType)
         try super.init(from: decoder)
     }

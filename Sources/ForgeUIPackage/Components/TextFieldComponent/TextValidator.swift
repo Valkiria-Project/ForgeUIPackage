@@ -8,14 +8,17 @@
 import Foundation
 
 class TextValidator {
-    private let regex: String
+    private let validations: [RegexValidation]
 
-    init(regex: String) {
-        self.regex = regex
+    init(_ validations: [RegexValidation]) {
+        self.validations = validations
     }
 
-    func validate(text: String) -> Bool {
-        let result = text.range(of: self.regex, options: .regularExpression)
-        return result != nil
+    func validate(text: String) -> String? {
+        let validation = validations.first {
+            text.range(of: $0.regex, options: .regularExpression) != nil
+        }
+
+        return validation?.message
     }
 }

@@ -2,7 +2,7 @@
     "type": "TEXTFIELD",
     "keyboardType": "TEXT",
     "hint": "Name TextField Hint",
-    "regex": "",
+    "validations": [],
     "margins": {
         "top": 0,
         "left": 0,
