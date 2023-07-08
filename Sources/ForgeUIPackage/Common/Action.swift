@@ -7,15 +7,7 @@
 
 import Foundation
 
-public struct Action: Codable {
-    public let type: ActionType
-
-    public init(type: ActionType) {
-        self.type = type
-    }
-}
-
-public enum ActionType: Codable, RawRepresentable, Equatable {
+public enum Action: Codable, RawRepresentable, Equatable {
     case deviceAuth
     case dismiss
     case action(String)

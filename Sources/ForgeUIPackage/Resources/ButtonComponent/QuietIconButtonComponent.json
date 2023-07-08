@@ -2,9 +2,7 @@
     "type": "BUTTON",
     "icon": "touchid",
     "style": "QUIET",
-    "onClick": {
-        "type": "DISMISS"
-    },
+    "onClick": "DISMISS",
     "margins": {
         "top": 0,
         "left": 0,
