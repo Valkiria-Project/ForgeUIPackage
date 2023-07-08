@@ -31,12 +31,19 @@ final class ComponentsTests: XCTestCase {
         XCTAssertNoThrow(try ButtonComponent.secondaryIconOnlyButtonExample())
         XCTAssertNoThrow(try ButtonComponent.secondaryTextOnlyButtonExample())
         XCTAssertNoThrow(try ButtonComponent.secondaryTextAndIconButtonExample())
+
+        //Transparent
+        XCTAssertNoThrow(try ButtonComponent.transparentButtonExample())
     }
 
     func testTextFieldCodableComponent() throws {
-        _ = try TextFieldComponent.numericTextField()
-        _ = try TextFieldComponent.emailTextField()
-        _ = try TextFieldComponent.nameTextField()
-        _ = try TextFieldComponent.phoneTextField()
+        XCTAssertNoThrow(try TextFieldComponent.numericTextField())
+        XCTAssertNoThrow(try TextFieldComponent.emailTextField())
+        XCTAssertNoThrow(try TextFieldComponent.nameTextField())
+        XCTAssertNoThrow(try TextFieldComponent.phoneTextField())
+    }
+
+    func testPillCodableComponent() throws {
+        XCTAssertNoThrow(try PillComponent.example())
     }
 }

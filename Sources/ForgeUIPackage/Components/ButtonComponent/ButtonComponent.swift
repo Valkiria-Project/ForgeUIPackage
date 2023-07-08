@@ -13,6 +13,7 @@ public class ButtonComponent: Component {
         case loud = "LOUD"
         case quiet = "QUIET"
         case secondary = "SECONDARY"
+        case transparent = "TRANSPARENT"
     }
     
     public private(set) var label: String?
@@ -86,6 +87,11 @@ extension ButtonComponent {
 
     static func secondaryTextOnlyButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try fromJsonResource(named: "SecondaryTextButtonComponent")
+        return component
+    }
+
+    static func transparentButtonExample() throws -> ButtonComponent {
+        let component: ButtonComponent = try fromJsonResource(named: "TransparentButtonComponent")
         return component
     }
 }

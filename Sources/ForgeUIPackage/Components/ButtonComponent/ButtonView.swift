@@ -174,6 +174,16 @@ extension ButtonView {
                         .stroke(Color.gray, lineWidth: 2)
                 )
                 .cornerRadius(25)
+        case .transparent:
+            return self
+                .padding()
+                .background(Color.clear)
+                .foregroundColor(Color.blue)
+                .overlay(
+                    RoundedRectangle(cornerRadius: .infinity)
+                        .stroke(Color.red, lineWidth: 2)
+                )
+                .cornerRadius(25)
         }
     }
 }
