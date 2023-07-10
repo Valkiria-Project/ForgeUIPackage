@@ -10,7 +10,11 @@ import SwiftUI
 
 public class TextFieldViewModel: ObservableObject {
 
-    @Published public var inputText: String = ""
+    @Published public var inputText: String = "" {
+        didSet {
+            closure(inputText)
+        }
+    }
     @Published public var showError: Bool = false
 
     public let identifier: Component.Identifier?
@@ -19,10 +23,15 @@ public class TextFieldViewModel: ObservableObject {
     public let margins: Margin
     public let icon: String?
     public var errorMessage: String?
+    public var closure: (String) -> Void
 
     let textValidator: TextValidator
 
-    public init(component: TextFieldComponent) {
+    public init(
+        component: TextFieldComponent,
+        inputClosure: @escaping (String) -> Void
+    ) {
+        closure = inputClosure
         identifier = component.identifier
         hint = component.hint
         icon = component.icon

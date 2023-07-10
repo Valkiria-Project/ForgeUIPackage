@@ -16,9 +16,7 @@ public struct ButtonView: View {
     }
 
     public var body: some View {
-        Button {
-            viewModel.buttonAction?()
-        } label: {
+        Button(action: viewModel.buttonAction) {
             HStack {
                 if let icon = viewModel.icon {
                     Image(systemName: icon)
@@ -32,115 +30,36 @@ public struct ButtonView: View {
     }
 }
 
-struct MockActionButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        let component: ButtonComponent = try! .quietIconOnlyButtonExample()
-        let viewModel = ButtonViewModel(component: component) 
-        viewModel.buttonAction = {
-            print("Worked!")
-        }
-        return ButtonView(
-            viewModel: viewModel
-        )
-        .style(.quiet)
-    }
-}
-
-struct QuietIconButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ButtonView(
-            viewModel: .init(
-                component: try! .quietIconOnlyButtonExample()
-            )
-        )
-        .style(.quiet)
-    }
-}
-
-struct QuietTextButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ButtonView(
-            viewModel: .init(
-                component: try! .quietTextOnlyButtonExample()
-            )
-        )
-        .style(.quiet)
-    }
-}
-
 struct QuietTextAndIconButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(
-            viewModel: .init(
-                component: try! .quietTextAndIconButtonExample()
-            )
-        )
-        .style(.quiet)
-    }
-}
-
-struct LoudIconButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ButtonView(
-            viewModel: .init(
-                component: try! .loudIconOnlyButtonExample()
-            )
-        )
-        .style(.loud)
-    }
-}
-
-struct LoudTextButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ButtonView(
-            viewModel: .init(
-                component: try! .loudTextOnlyButtonExample()
-            )
-        )
-        .style(.loud)
+        let component: ButtonComponent = try! .quietTextAndIconButtonExample()
+        let viewModel = ButtonViewModel(component: component) {
+            print("Worked")
+        }
+        ButtonView(viewModel: viewModel)
+            .style(.quiet)
     }
 }
 
 struct LoudTextAndIconButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(
-            viewModel: .init(
-                component: try! .loudTextAndIconButtonExample()
-            )
-        ).style(.loud)
-    }
-}
-
-struct SecondaryIconButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ButtonView(
-            viewModel: .init(
-                component: try! .secondaryIconOnlyButtonExample()
-            )
-        )
-        .style(.secondary)
-    }
-}
-
-struct SecondaryTextButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ButtonView(
-            viewModel: .init(
-                component: try! .secondaryTextOnlyButtonExample()
-            )
-        )
-        .style(.secondary)
+        let component: ButtonComponent = try! .loudTextAndIconButtonExample()
+        let viewModel = ButtonViewModel(component: component) {
+            print("Worked")
+        }
+        ButtonView(viewModel: viewModel)
+            .style(.loud)
     }
 }
 
 struct SecondaryTextAndIconButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(
-            viewModel: .init(
-                component: try! .secondaryTextAndIconButtonExample()
-            )
-        )
-        .style(.secondary)
+        let component: ButtonComponent = try! .secondaryTextAndIconButtonExample()
+        let viewModel = ButtonViewModel(component: component) {
+            print("Worked")
+        }
+        ButtonView(viewModel: viewModel)
+            .style(.secondary)
     }
 }
 

@@ -49,40 +49,40 @@ public struct TextFieldView: View {
 
 struct EmailTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView(
-            viewModel: .init(
-                component: try! .emailTextField()
-            )
-        )
+        let component: TextFieldComponent = try! .numericTextField()
+        let viewModel = TextFieldViewModel(component: component) { newValue in
+            print("newValue: \(newValue)")
+        }
+        TextFieldView(viewModel: viewModel)
     }
 }
 
 struct NameTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView(
-            viewModel: .init(
-                component: try! .nameTextField()
-            )
-        )
+        let component: TextFieldComponent = try! .nameTextField()
+        let viewModel = TextFieldViewModel(component: component) { newValue in
+            print("newValue: \(newValue)")
+        }
+        TextFieldView(viewModel: viewModel)
     }
 }
 
 struct NumericTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView(
-            viewModel: .init(
-                component: try! .numericTextField()
-            )
-        )
+        let component: TextFieldComponent = try! .numericTextField()
+        let viewModel = TextFieldViewModel(component: component) { newValue in
+            print("newValue: \(newValue)")
+        }
+        TextFieldView(viewModel: viewModel)
     }
 }
 
 struct PhoneTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView(
-            viewModel: .init(
-                component: try! .phoneTextField()
-            )
-        )
+        let component: TextFieldComponent = try! .phoneTextField()
+        let viewModel = TextFieldViewModel(component: component) { newValue in
+            print("newValue: \(newValue)")
+        }
+        TextFieldView(viewModel: viewModel)
     }
 }
