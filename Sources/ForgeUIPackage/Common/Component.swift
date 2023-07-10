@@ -16,18 +16,28 @@ public class Component: Identifiable, Codable {
         case forgotPasswordButton = "FORGOT_PASSWORD_BUTTON"
     }
 
+    public enum ComponentType: String, Codable {
+        case label = "LABEL"
+        case textField = "TEXT_FIELD"
+        case button = "BUTTON"
+        case chip = "CHIP"
+        case termsAndConditions = "TERMS_AND_CONDITIONS"
+    }
+
     public let id: UUID
     public let identifier: Identifier?
     public let margins: Margin
+    public let type: ComponentType
 
     enum CodingKeys: CodingKey {
-        case margins, id, identifier
+        case margins, id, identifier, type
     }
 
-    public init(identifier: Identifier? = nil, margins: Margin) {
+    public init(identifier: Identifier? = nil, margins: Margin, type: ComponentType) {
         self.id = UUID()
         self.identifier = identifier
         self.margins = margins
+        self.type = type
     }
 
     public required init(from decoder: Decoder) throws {
@@ -35,6 +45,7 @@ public class Component: Identifiable, Codable {
         self.id = UUID()
         self.identifier = try container.decodeIfPresent(Identifier.self, forKey: .identifier)
         self.margins = try container.decode(Margin.self, forKey: .margins)
+        self.type = try container.decode(ComponentType.self, forKey: .type)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -42,5 +53,6 @@ public class Component: Identifiable, Codable {
         try container.encode(self.id, forKey: .id)
         try container.encodeIfPresent(self.identifier, forKey: .identifier)
         try container.encode(self.margins, forKey: .margins)
+        try container.encode(self.type, forKey: .type)
     }
 }

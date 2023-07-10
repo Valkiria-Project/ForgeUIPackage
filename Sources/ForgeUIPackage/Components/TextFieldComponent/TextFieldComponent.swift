@@ -39,7 +39,7 @@ public class TextFieldComponent: Component {
         self.icon = icon
         self.validations = validations
         self.keyboardType = keyboardType
-        super.init(identifier: identifier, margins: margins)
+        super.init(identifier: identifier, margins: margins, type: .textField)
     }
 
     private enum CodingKeys: String, CodingKey {

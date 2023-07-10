@@ -45,7 +45,7 @@ public class ButtonComponent: Component {
         self.style = style
         self.onClick = onClick
         self.size = size
-        super.init(identifier: identifier, margins: margins)
+        super.init(identifier: identifier, margins: margins, type: .button)
     }
 
     public required init(from decoder: Decoder) throws {

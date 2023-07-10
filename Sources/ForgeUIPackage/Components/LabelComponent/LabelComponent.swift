@@ -24,7 +24,7 @@ public class LabelComponent: Component {
     public init(text: String, style: Style, margins: Margin) {
         self.text = text
         self.style = style
-        super.init(margins: margins)
+        super.init(margins: margins, type: .label)
     }
 
     public required init(from decoder: Decoder) throws {

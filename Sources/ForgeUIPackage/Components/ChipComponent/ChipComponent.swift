@@ -24,7 +24,7 @@ public class ChipComponent: Component {
     ) {
         self.text = text
         self.icon = icon
-        super.init(identifier: identifier, margins: margins)
+        super.init(identifier: identifier, margins: margins, type: .chip)
     }
 
     public required init(from decoder: Decoder) throws {
