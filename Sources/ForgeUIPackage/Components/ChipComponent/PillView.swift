@@ -19,10 +19,10 @@ public struct ChipView: View {
         HStack(spacing: 22) {
             Image(component.icon)
                 .foregroundColor(.black)
+                .frame(width: 43, height: 34)
             Text(component.text)
                 .font(.system(size: 16, weight: .bold))
         }
-        .frame(width: 156, height: 46)
     }
 }
 

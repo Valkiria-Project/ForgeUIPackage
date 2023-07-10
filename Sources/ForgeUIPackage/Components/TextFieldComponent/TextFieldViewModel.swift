@@ -34,6 +34,7 @@ public class TextFieldViewModel: ObservableObject {
         case .phone: keyboardType = .phonePad
         case .text: keyboardType = .namePhonePad
         case .email: keyboardType = .emailAddress
+        case .password: keyboardType = .emailAddress
         }
     }
 

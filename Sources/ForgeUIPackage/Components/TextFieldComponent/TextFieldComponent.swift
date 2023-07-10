@@ -12,6 +12,7 @@ public enum KeyboardType: String, Codable {
     case phone = "PHONE"
     case text = "TEXT"
     case email = "EMAIL"
+    case password = "PASSWORD"
 }
 
 //public enum TextFieldStyle: String, Codable {
