@@ -19,12 +19,15 @@ public struct ButtonView: View {
         Button {
             viewModel.buttonAction?()
         } label: {
-            if let icon = viewModel.icon {
-                Image(systemName: icon)
+            HStack {
+                if let icon = viewModel.icon {
+                    Image(systemName: icon)
+                }
+                if let label = viewModel.label {
+                    Text(label)
+                }
             }
-            if let label = viewModel.label {
-                Text(label)
-            }
+            .frame(maxWidth: viewModel.size == ButtonComponent.Size.fullWidth ? .infinity : nil)
         }
     }
 }

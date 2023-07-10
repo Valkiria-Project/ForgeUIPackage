@@ -13,6 +13,7 @@ public class ButtonViewModel {
     public let label: String?
     public let icon: String?
     public let style: ButtonComponent.Style
+    public let size: ButtonComponent.Size?
     public let action: Action
     public let margins: Margin
     public var buttonAction: (() -> Void)?
@@ -22,6 +23,7 @@ public class ButtonViewModel {
         label = component.label
         icon = component.icon
         style = component.style
+        size = component.size
         action = component.onClick
         margins = component.margins
     }
