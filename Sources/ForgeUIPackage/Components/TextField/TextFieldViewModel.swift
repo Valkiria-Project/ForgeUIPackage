@@ -25,8 +25,6 @@ public class TextFieldViewModel: ObservableObject {
     public var errorMessage: String?
     public var closure: (Component.Identifier?, String) -> Void
 
-    let textValidator: TextValidator
-
     public init(
         component: TextFieldComponent,
         inputClosure: @escaping (Component.Identifier?, String) -> Void
@@ -36,7 +34,6 @@ public class TextFieldViewModel: ObservableObject {
         hint = component.hint
         icon = component.icon
         margins = component.margins
-        textValidator = TextValidator(component.validations)
 
         switch component.keyboardType {
         case .numeric: keyboardType = .numberPad
@@ -45,9 +42,5 @@ public class TextFieldViewModel: ObservableObject {
         case .email: keyboardType = .emailAddress
         case .password: keyboardType = .emailAddress
         }
-    }
-
-    public func validate() {
-        errorMessage = textValidator.validate(text: inputText)
     }
 }

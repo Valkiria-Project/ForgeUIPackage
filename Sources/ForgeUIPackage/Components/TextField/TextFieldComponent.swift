@@ -43,7 +43,8 @@ public class TextFieldComponent: Component {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case hint, validations, keyboardType, icon
+        case hint, validations, icon
+        case keyboardType = "keyboard_type"
     }
 
     public required init(from decoder: Decoder) throws {

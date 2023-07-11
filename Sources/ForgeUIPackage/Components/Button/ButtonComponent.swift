@@ -24,11 +24,12 @@ public class ButtonComponent: Component {
     public private(set) var label: String?
     public private(set) var icon: String?
     public private(set) var style: Style
-    public private(set) var size: ButtonComponent.Size?
+    public private(set) var size: ButtonComponent.Size
     public private(set) var onClick: Action
 
     private enum CodingKeys: String, CodingKey {
-        case label, icon, style, onClick, size
+        case label, icon, style, size
+        case onClick = "on_click"
     }
 
     public init(
@@ -36,7 +37,7 @@ public class ButtonComponent: Component {
         label: String?,
         icon: String?,
         style: Style,
-        size: ButtonComponent.Size?,
+        size: ButtonComponent.Size,
         onClick: Action,
         margins: Margin
     ) {
@@ -53,7 +54,7 @@ public class ButtonComponent: Component {
         self.label = try container.decodeIfPresent(String.self, forKey: .label)
         self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
         self.style = try container.decode(Style.self, forKey: .style)
-        self.size = try container.decodeIfPresent(ButtonComponent.Size.self, forKey: .size)
+        self.size = try container.decode(ButtonComponent.Size.self, forKey: .size)
         self.onClick = try container.decode(Action.self, forKey: .onClick)
         try super.init(from: decoder)
     }

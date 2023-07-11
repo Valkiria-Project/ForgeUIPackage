@@ -22,6 +22,7 @@ public class Component: Identifiable, Codable {
         case button = "BUTTON"
         case chip = "CHIP"
         case termsAndConditions = "TERMS_AND_CONDITIONS"
+        case richLabel = "RICH_LABEL"
     }
 
     public let id: UUID
