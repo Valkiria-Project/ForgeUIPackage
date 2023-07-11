@@ -34,7 +34,7 @@ struct QuietTextAndIconButtonView_Previews: PreviewProvider {
     static var previews: some View {
         let component: ButtonComponent = try! .quietTextAndIconButtonExample()
         let viewModel = ButtonViewModel(component: component) {
-            print("Worked")
+            print("Worked with action \($0)")
         }
         ButtonView(viewModel: viewModel)
             .style(.quiet)
@@ -45,7 +45,7 @@ struct LoudTextAndIconButtonView_Previews: PreviewProvider {
     static var previews: some View {
         let component: ButtonComponent = try! .loudTextAndIconButtonExample()
         let viewModel = ButtonViewModel(component: component) {
-            print("Worked")
+            print("Worked with action \($0)")
         }
         ButtonView(viewModel: viewModel)
             .style(.loud)
@@ -56,7 +56,7 @@ struct SecondaryTextAndIconButtonView_Previews: PreviewProvider {
     static var previews: some View {
         let component: ButtonComponent = try! .secondaryTextAndIconButtonExample()
         let viewModel = ButtonViewModel(component: component) {
-            print("Worked")
+            print("Worked with action \($0)")
         }
         ButtonView(viewModel: viewModel)
             .style(.secondary)

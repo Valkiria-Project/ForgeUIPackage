@@ -50,8 +50,8 @@ public struct TextFieldView: View {
 struct EmailTextField_Previews: PreviewProvider {
     static var previews: some View {
         let component: TextFieldComponent = try! .numericTextField()
-        let viewModel = TextFieldViewModel(component: component) { newValue in
-            print("newValue: \(newValue)")
+        let viewModel = TextFieldViewModel( component: component) {
+            print("newValue: \($1)")
         }
         TextFieldView(viewModel: viewModel)
     }
@@ -60,8 +60,8 @@ struct EmailTextField_Previews: PreviewProvider {
 struct NameTextField_Previews: PreviewProvider {
     static var previews: some View {
         let component: TextFieldComponent = try! .nameTextField()
-        let viewModel = TextFieldViewModel(component: component) { newValue in
-            print("newValue: \(newValue)")
+        let viewModel = TextFieldViewModel(component: component) {
+            print("newValue: \($1)")
         }
         TextFieldView(viewModel: viewModel)
     }
@@ -70,8 +70,8 @@ struct NameTextField_Previews: PreviewProvider {
 struct NumericTextField_Previews: PreviewProvider {
     static var previews: some View {
         let component: TextFieldComponent = try! .numericTextField()
-        let viewModel = TextFieldViewModel(component: component) { newValue in
-            print("newValue: \(newValue)")
+        let viewModel = TextFieldViewModel(component: component) {
+            print("newValue: \($1)")
         }
         TextFieldView(viewModel: viewModel)
     }
@@ -80,8 +80,8 @@ struct NumericTextField_Previews: PreviewProvider {
 struct PhoneTextField_Previews: PreviewProvider {
     static var previews: some View {
         let component: TextFieldComponent = try! .phoneTextField()
-        let viewModel = TextFieldViewModel(component: component) { newValue in
-            print("newValue: \(newValue)")
+        let viewModel = TextFieldViewModel(component: component) {
+            print("newValue: \($1)")
         }
         TextFieldView(viewModel: viewModel)
     }

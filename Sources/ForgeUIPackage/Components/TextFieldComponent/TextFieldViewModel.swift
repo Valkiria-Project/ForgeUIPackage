@@ -12,7 +12,7 @@ public class TextFieldViewModel: ObservableObject {
 
     @Published public var inputText: String = "" {
         didSet {
-            closure(inputText)
+            closure(identifier, inputText)
         }
     }
     @Published public var showError: Bool = false
@@ -23,13 +23,13 @@ public class TextFieldViewModel: ObservableObject {
     public let margins: Margin
     public let icon: String?
     public var errorMessage: String?
-    public var closure: (String) -> Void
+    public var closure: (Component.Identifier?, String) -> Void
 
     let textValidator: TextValidator
 
     public init(
         component: TextFieldComponent,
-        inputClosure: @escaping (String) -> Void
+        inputClosure: @escaping (Component.Identifier?, String) -> Void
     ) {
         closure = inputClosure
         identifier = component.identifier
