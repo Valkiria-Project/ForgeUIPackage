@@ -17,14 +17,15 @@ public struct RichLabelView: View {
 
     public var body: some View {
         HTMLText(html: viewModel.text)
+            .fixedSize(horizontal: true, vertical: true)
     }
 }
 
 struct HTMLText: UIViewRepresentable {
 
-   let html: String
+    let html: String
 
-   func makeUIView(context: UIViewRepresentableContext<Self>) -> UILabel {
+    func makeUIView(context: UIViewRepresentableContext<Self>) -> UILabel {
         let label = UILabel()
         DispatchQueue.main.async {
             let data = Data(self.html.utf8)
