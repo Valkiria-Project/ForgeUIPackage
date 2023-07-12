@@ -74,24 +74,6 @@ public struct PasswordTextFieldView: View {
             }
         }
     }
-
-    //    public var stack: some View {
-    //        HStack {
-    //            SecureField(
-    //                viewModel.icon == nil ? "" : viewModel.hint,
-    //                text: $viewModel.inputText
-    //            )
-    //            .keyboardType(viewModel.keyboardType)
-    //
-    //            Button {
-    //
-    //            } label: {
-    //                Image(systemName: "eye")
-    //            }
-    //            .padding(.trailing)
-    //        }
-    //        .frame(height: 40)
-    //    }
 }
 
 struct PasswordTextFieldView_Previews: PreviewProvider {
