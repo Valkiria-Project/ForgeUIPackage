@@ -9,12 +9,13 @@ import Foundation
 
 public class RichLabelViewModel {
     public let text: String
-    public let margins: Margin
-    public let style: RichLabelComponent.Style
+    public let margins: Component.Margin
+    public let textStyle: Component.TextStyle
 
     public init(component: RichLabelComponent) {
         text = component.text
         margins = component.margins
-        style = component.style
+        textStyle = component.textStyle
+
     }
 }

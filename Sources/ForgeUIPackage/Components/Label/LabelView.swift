@@ -27,7 +27,6 @@ struct TitleLabelView_Previews: PreviewProvider {
                 component: try! .titleExample()
             )
         )
-        .style(.title)
     }
 }
 
@@ -38,7 +37,6 @@ struct HeadingLabelView_Previews: PreviewProvider {
                 component: try! .headingExample()
             )
         )
-        .style(.heading)
     }
 }
 
@@ -49,25 +47,5 @@ struct BodyLabelView_Previews: PreviewProvider {
                 component: try! .bodyExample()
             )
         )
-        .style(.body)
-    }
-}
-
-fileprivate extension LabelView {
-    func style(_ style: LabelComponent.Style) -> some View {
-        switch style {
-        case .body:
-            return self
-                .font(.system(size: 14))
-                .font(.body)
-        case .title:
-            return self
-                .font(.system(size: 36))
-                .font(.title)
-        case .heading:
-            return self
-                .font(.system(size: 24))
-                .font(.headline)
-        }
     }
 }

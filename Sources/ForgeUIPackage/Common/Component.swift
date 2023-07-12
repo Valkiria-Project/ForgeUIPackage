@@ -25,18 +25,40 @@ public class Component: Identifiable, Codable {
         case richLabel = "RICH_LABEL"
     }
 
+    public enum TextStyle: String, Codable {
+        case headline1 = "HEADLINE_1"
+        case headline2 = "HEADLINE_2"
+        case headline3 = "HEADLINE_3"
+        case headline4 = "HEADLINE_4"
+        case headline5 = "HEADLINE_5"
+        case headline6 = "HEADLINE_6"
+        case headline7 = "HEADLINE_7"
+        case headline8 = "HEADLINE_8"
+        case body1 = "BODY_1"
+        case button1 = "BUTTON_1"
+        case button2 = "BUTTON_2"
+    }
+
     public let id: UUID
     public let identifier: Identifier?
+    public let textStyle: TextStyle
     public let margins: Margin
     public let type: ComponentType
 
-    enum CodingKeys: CodingKey {
+    enum CodingKeys: String, CodingKey {
         case margins, id, identifier, type
+        case textStyle = "text_style"
     }
 
-    public init(identifier: Identifier? = nil, margins: Margin, type: ComponentType) {
+    init(
+        identifier: Identifier? = nil,
+        textStyle: TextStyle,
+        margins: Margin,
+        type: ComponentType
+    ) {
         self.id = UUID()
         self.identifier = identifier
+        self.textStyle = textStyle
         self.margins = margins
         self.type = type
     }
@@ -45,6 +67,7 @@ public class Component: Identifiable, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = UUID()
         self.identifier = try container.decodeIfPresent(Identifier.self, forKey: .identifier)
+        self.textStyle = try container.decode(TextStyle.self, forKey: .textStyle)
         self.margins = try container.decode(Margin.self, forKey: .margins)
         self.type = try container.decode(ComponentType.self, forKey: .type)
     }
@@ -53,6 +76,7 @@ public class Component: Identifiable, Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.id, forKey: .id)
         try container.encodeIfPresent(self.identifier, forKey: .identifier)
+        try container.encode(self.textStyle, forKey: .textStyle)
         try container.encode(self.margins, forKey: .margins)
         try container.encode(self.type, forKey: .type)
     }

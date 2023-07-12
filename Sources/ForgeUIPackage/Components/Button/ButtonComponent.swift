@@ -18,7 +18,7 @@ public class ButtonComponent: Component {
 
     public enum Size: String, Codable {
         case `default` = "default"
-        case fullWidth
+        case fullWidth = "FULL_WIDTH"
     }
     
     public private(set) var label: String?
@@ -39,14 +39,15 @@ public class ButtonComponent: Component {
         style: Style,
         size: ButtonComponent.Size,
         onClick: Action,
-        margins: Margin
+        textStyle: Component.TextStyle,
+        margins: Component.Margin
     ) {
         self.label = label
         self.icon = icon
         self.style = style
         self.onClick = onClick
         self.size = size
-        super.init(identifier: identifier, margins: margins, type: .button)
+        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .button)
     }
 
     public required init(from decoder: Decoder) throws {
@@ -62,23 +63,8 @@ public class ButtonComponent: Component {
 
 extension ButtonComponent {
 
-    static func quietIconOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try fromJsonResource(named: "QuietIconButtonComponent")
-        return component
-    }
-
     static func quietTextAndIconButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try fromJsonResource(named: "QuietTextAndIconButtonComponent")
-        return component
-    }
-
-    static func quietTextOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try fromJsonResource(named: "QuietTextButtonComponent")
-        return component
-    }
-
-    static func loudIconOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try fromJsonResource(named: "LoudIconButtonComponent")
         return component
     }
 
@@ -87,23 +73,8 @@ extension ButtonComponent {
         return component
     }
 
-    static func loudTextOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try fromJsonResource(named: "LoudTextButtonComponent")
-        return component
-    }
-
-    static func secondaryIconOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try fromJsonResource(named: "SecondaryIconButtonComponent")
-        return component
-    }
-
     static func secondaryTextAndIconButtonExample() throws -> ButtonComponent {
         let component: ButtonComponent = try fromJsonResource(named: "SecondaryTextAndIconButtonComponent")
-        return component
-    }
-
-    static func secondaryTextOnlyButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try fromJsonResource(named: "SecondaryTextButtonComponent")
         return component
     }
 

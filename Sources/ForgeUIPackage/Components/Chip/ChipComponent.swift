@@ -20,11 +20,12 @@ public class ChipComponent: Component {
         identifier: Component.Identifier? = nil,
         text: String,
         icon: String,
+        textStyle: Component.TextStyle,
         margins: Margin
     ) {
         self.text = text
         self.icon = icon
-        super.init(identifier: identifier, margins: margins, type: .chip)
+        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .chip)
     }
 
     public required init(from decoder: Decoder) throws {

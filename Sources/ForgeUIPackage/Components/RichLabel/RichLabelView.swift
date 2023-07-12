@@ -46,7 +46,7 @@ struct SwiftUIView_Previews: PreviewProvider {
             viewModel: .init(
                 component: .init(
                     text: "Title <b> bold text </b>",
-                    style: .heading,
+                    textStyle: .body1,
                     margins: .init()
                 )
             )

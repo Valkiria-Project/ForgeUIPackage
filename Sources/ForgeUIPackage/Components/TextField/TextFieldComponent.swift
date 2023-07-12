@@ -33,13 +33,14 @@ public class TextFieldComponent: Component {
         icon: String? = nil,
         validations: [RegexValidation],
         keyboardType: KeyboardType,
-        margins: Margin
+        textStyle: Component.TextStyle,
+        margins: Component.Margin
     ) {
         self.hint = hint
         self.icon = icon
         self.validations = validations
         self.keyboardType = keyboardType
-        super.init(identifier: identifier, margins: margins, type: .textField)
+        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .textField)
     }
 
     private enum CodingKeys: String, CodingKey {

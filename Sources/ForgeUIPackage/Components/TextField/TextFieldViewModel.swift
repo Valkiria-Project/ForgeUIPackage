@@ -20,7 +20,7 @@ public class TextFieldViewModel: ObservableObject {
     public let identifier: Component.Identifier?
     public let hint: String
     public let keyboardType: UIKeyboardType
-    public let margins: Margin
+    public let margins: Component.Margin
     public let icon: String?
     public var errorMessage: String?
     public var closure: (Component.Identifier?, String) -> Void

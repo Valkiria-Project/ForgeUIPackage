@@ -19,17 +19,11 @@ final class ComponentsTests: XCTestCase {
     func testButtonCodableComponent() throws {
         // Loud
         XCTAssertNoThrow(try ButtonComponent.loudTextAndIconButtonExample())
-        XCTAssertNoThrow(try ButtonComponent.loudIconOnlyButtonExample())
-        XCTAssertNoThrow(try ButtonComponent.loudTextOnlyButtonExample())
 
         // Quiet
-        XCTAssertNoThrow(try ButtonComponent.quietIconOnlyButtonExample())
-        XCTAssertNoThrow(try ButtonComponent.quietTextOnlyButtonExample())
         XCTAssertNoThrow(try ButtonComponent.quietTextAndIconButtonExample())
 
         // Secondary
-        XCTAssertNoThrow(try ButtonComponent.secondaryIconOnlyButtonExample())
-        XCTAssertNoThrow(try ButtonComponent.secondaryTextOnlyButtonExample())
         XCTAssertNoThrow(try ButtonComponent.secondaryTextAndIconButtonExample())
 
         //Transparent

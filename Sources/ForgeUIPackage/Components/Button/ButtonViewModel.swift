@@ -14,7 +14,7 @@ public class ButtonViewModel {
     public let icon: String?
     public let style: ButtonComponent.Style
     public let size: ButtonComponent.Size?
-    public let margins: Margin
+    public let margins: Component.Margin
     public var buttonAction: () -> Void
 
     public init(component: ButtonComponent, buttonAction: @escaping (Action) -> Void) {
