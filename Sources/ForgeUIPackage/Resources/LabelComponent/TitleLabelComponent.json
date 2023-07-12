@@ -1,7 +1,7 @@
 {
     "type": "LABEL",
     "text": "Title Label",
-    "style": "TITLE",
+    "text_style": "BUTTON_1",
     "margins": {
         "top": 0,
         "left": 0,
