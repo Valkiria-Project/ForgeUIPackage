@@ -27,15 +27,28 @@ public struct PasswordTextFieldView: View {
                     ZStack {
                         if viewModel.isShowingPassword {
                             TextField(
-                                viewModel.icon == nil ? "" : viewModel.hint,
+                                "",
                                 text: $viewModel.inputText
                             )
+                            .padding(.leading, 10)
+                            .foregroundColor(.white)
+                            .placeholder(when: viewModel.inputText.isEmpty) {
+                                Text(viewModel.hint).foregroundColor(.white)
+                                    .padding(.leading, 10)
+                            }
+                            .foregroundColor(.white)
                             .keyboardType(viewModel.keyboardType)
                         } else {
                             SecureField(
-                                viewModel.icon == nil ? "" : viewModel.hint,
+                                "",
                                 text: $viewModel.inputText
                             )
+                            .padding(.leading, 10)
+                            .foregroundColor(.white)
+                            .placeholder(when: viewModel.inputText.isEmpty) {
+                                Text(viewModel.hint).foregroundColor(.white)
+                                    .padding(.leading, 10)
+                            }
                             .keyboardType(viewModel.keyboardType)
                         }
                     }

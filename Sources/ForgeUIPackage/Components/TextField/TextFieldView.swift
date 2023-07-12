@@ -27,10 +27,17 @@ public struct TextFieldView: View {
                     Text(viewModel.hint)
                 }
                 
-                TextField(viewModel.icon == nil ? "" : viewModel.hint, text: $viewModel.inputText)
+                TextField("", text: $viewModel.inputText)
+                    .padding(.leading, 10)
+                    .foregroundColor(.white)
                     .keyboardType(viewModel.keyboardType)
                     .frame(height: 40)
                     .border(viewModel.showError ? Color.red : Color.black)
+                    .placeholder(when: viewModel.icon != nil && viewModel.inputText.isEmpty) {
+                        Text(viewModel.hint)
+                            .foregroundColor(.white)
+                            .padding(.leading, 10)
+                    }
                 
                 if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
