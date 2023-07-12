@@ -37,7 +37,7 @@ final class ComponentsTests: XCTestCase {
         XCTAssertNoThrow(try TextFieldComponent.phoneTextField())
     }
 
-    func testPillCodableComponent() throws {
+    func testChipCodableComponent() throws {
         XCTAssertNoThrow(try ChipComponent.example())
     }
 }

@@ -17,7 +17,7 @@ public class ButtonComponent: Component {
     }
 
     public enum Size: String, Codable {
-        case `default` = "default"
+        case `default` = "DEFAULT"
         case fullWidth = "FULL_WIDTH"
     }
     

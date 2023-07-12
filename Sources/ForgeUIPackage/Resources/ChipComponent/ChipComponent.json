@@ -1,6 +1,8 @@
 {
     "text": "1234",
     "icon": "YourIcon",
+    "style": "PRIMARY",
+    "text_style": "HEADLINE_5",
     "margins": {
         "top": 0,
         "left": 0,

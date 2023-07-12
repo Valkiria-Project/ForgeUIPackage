@@ -32,6 +32,7 @@ struct ChipView_Previews: PreviewProvider {
             component: .init(
                 text: "123",
                 icon: "vehicle",
+                style: .primary,
                 textStyle: .body1,
                 margins: .init()
             )
