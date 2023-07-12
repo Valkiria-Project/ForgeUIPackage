@@ -10,7 +10,7 @@ import Foundation
 public class LabelVieModel {
     public let text: String
     public let margins: Component.Margin
-    public let textStyle: Component.TextStyle
+    public let textStyle: Component.TextStyle?
 
     public init(component: LabelComponent) {
         text = component.text

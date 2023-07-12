@@ -7,11 +7,15 @@
 
 import SwiftUI
 
-struct PasswordTextFieldView: View {
+public struct PasswordTextFieldView: View {
 
     @ObservedObject var viewModel: PasswordTextFieldViewModel
 
-    var body: some View {
+    public init(viewModel: PasswordTextFieldViewModel) {
+        self.viewModel = viewModel
+    }
+
+    public var body: some View {
         HStack {
             if let icon = viewModel.icon {
                 Image(icon)
