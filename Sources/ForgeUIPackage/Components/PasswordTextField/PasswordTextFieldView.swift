@@ -16,25 +16,34 @@ public struct PasswordTextFieldView: View {
     }
 
     public var body: some View {
-        HStack {
-            if let icon = viewModel.icon {
-                Image(icon)
-                    .resizable()
-                    .frame(width: 32, height: 32)
-            }
-            VStack(alignment: .leading) {
-                if viewModel.icon == nil {
-                    Text(viewModel.hint)
+        VStack {
+            HStack {
+                if let icon = viewModel.icon {
+                    Image(icon)
+                        .resizable()
+                        .frame(width: 32, height: 32)
                 }
-                SecureField(viewModel.icon == nil ? "" : viewModel.hint, text: $viewModel.inputText)
+                HStack {
+                    SecureField(
+                        viewModel.icon == nil ? "" : viewModel.hint,
+                        text: $viewModel.inputText
+                    )
                     .keyboardType(viewModel.keyboardType)
-                    .frame(height: 40)
-                    .border(viewModel.showError ? Color.red : Color.black)
-                if let errorMessage = viewModel.errorMessage {
-                    Text(errorMessage)
-                        .foregroundColor(Color.red)
-                        .padding([.leading])
+
+                    Button {
+
+                    } label: {
+                        Image(systemName: "eye")
+                    }
+                    .padding(.trailing)
                 }
+                .frame(height: 40)
+                .border(viewModel.showError ? Color.red : Color.black)
+            }
+            if let errorMessage = viewModel.errorMessage {
+                Text(errorMessage)
+                    .foregroundColor(Color.red)
+                    .padding([.leading])
             }
         }
     }
