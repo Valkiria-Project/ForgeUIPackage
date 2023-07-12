@@ -40,4 +40,8 @@ final class ComponentsTests: XCTestCase {
     func testChipCodableComponent() throws {
         XCTAssertNoThrow(try ChipComponent.example())
     }
+
+    func testPasswordTextFieldCodableComponent() throws {
+        XCTAssertNoThrow(try PasswordTextFieldComponent.example())
+    }
 }

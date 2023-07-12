@@ -23,6 +23,7 @@ public class Component: Identifiable, Codable {
         case chip = "CHIP"
         case termsAndConditions = "TERMS_AND_CONDITIONS"
         case richLabel = "RICH_LABEL"
+        case passwordTextField = "PASSWORD_TEXT_FIELD"
     }
 
     public enum TextStyle: String, Codable {

@@ -1,6 +1,6 @@
 {
     "type": "TEXT_FIELD",
-    "textfield_identifier": "EMAIL",
+    "identifier": "EMAIL_TEXT_FIELD",
     "keyboard_type": "EMAIL",
     "text_style": "HEADLINE_5",
     "placeholder": "Email hint placeholder",

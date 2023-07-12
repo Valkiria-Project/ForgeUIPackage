@@ -8,13 +8,13 @@
 import SwiftUI
 
 public struct TextFieldView: View {
-
+    
     @ObservedObject private var viewModel: TextFieldViewModel
-
+    
     public init(viewModel: TextFieldViewModel) {
         self.viewModel = viewModel
     }
-
+    
     public var body: some View {
         HStack {
             if let icon = viewModel.icon {
@@ -26,17 +26,12 @@ public struct TextFieldView: View {
                 if viewModel.icon == nil {
                     Text(viewModel.hint)
                 }
-                if viewModel.identifier == .passwordTextField {
-                    SecureField(viewModel.icon == nil ? "" : viewModel.hint, text: $viewModel.inputText)
-                        .keyboardType(viewModel.keyboardType)
-                        .frame(height: 40)
-                        .border(viewModel.showError ? Color.red : Color.black)
-                } else {
-                    TextField(viewModel.icon == nil ? "" : viewModel.hint, text: $viewModel.inputText)
-                        .keyboardType(viewModel.keyboardType)
-                        .frame(height: 40)
-                        .border(viewModel.showError ? Color.red : Color.black)
-                }
+                
+                TextField(viewModel.icon == nil ? "" : viewModel.hint, text: $viewModel.inputText)
+                    .keyboardType(viewModel.keyboardType)
+                    .frame(height: 40)
+                    .border(viewModel.showError ? Color.red : Color.black)
+                
                 if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
                         .foregroundColor(Color.red)

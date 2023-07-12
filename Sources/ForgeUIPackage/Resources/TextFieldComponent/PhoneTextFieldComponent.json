@@ -1,5 +1,6 @@
 {
     "type": "TEXT_FIELD",
+    "identifier": "EMAIL_TEXT_FIELD",
     "keyboard_type": "EMAIL",
     "text_style": "HEADLINE_5",
     "placeholder": "Phone TextField Hint",
