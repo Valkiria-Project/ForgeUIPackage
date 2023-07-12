@@ -14,6 +14,7 @@ public class PasswordTextFieldViewModel: ObservableObject {
         }
     }
     @Published public var showError: Bool = false
+    @Published public var isShowingPassword: Bool = false
 
     public let identifier: Component.Identifier?
     public let hint: String
@@ -33,6 +34,14 @@ public class PasswordTextFieldViewModel: ObservableObject {
         icon = component.icon
         margins = component.margins
         keyboardType = .emailAddress
+    }
+
+    func showPassword() {
+        isShowingPassword = true
+    }
+
+    func hidePassword() {
+        isShowingPassword = false
     }
 }
 

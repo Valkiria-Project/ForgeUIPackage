@@ -15,12 +15,13 @@ public class RichLabelComponent: Component {
     }
 
     public init(
+        identifier: Component.Identifier?,
         text: String,
         textStyle: Component.TextStyle,
         margins: Component.Margin
     ) {
         self.text = text
-        super.init(textStyle: textStyle, margins: margins, type: .richLabel)
+        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .richLabel)
     }
 
     public required init(from decoder: Decoder) throws {

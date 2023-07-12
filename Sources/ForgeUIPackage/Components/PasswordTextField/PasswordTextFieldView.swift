@@ -24,18 +24,32 @@ public struct PasswordTextFieldView: View {
                         .frame(width: 32, height: 32)
                 }
                 HStack {
-                    SecureField(
-                        viewModel.icon == nil ? "" : viewModel.hint,
-                        text: $viewModel.inputText
-                    )
-                    .keyboardType(viewModel.keyboardType)
-
-                    Button {
-
-                    } label: {
-                        Image(systemName: "eye")
+                    ZStack {
+                        if viewModel.isShowingPassword {
+                            TextField(
+                                viewModel.icon == nil ? "" : viewModel.hint,
+                                text: $viewModel.inputText
+                            )
+                            .keyboardType(viewModel.keyboardType)
+                        } else {
+                            SecureField(
+                                viewModel.icon == nil ? "" : viewModel.hint,
+                                text: $viewModel.inputText
+                            )
+                            .keyboardType(viewModel.keyboardType)
+                        }
                     }
-                    .padding(.trailing)
+
+                    Image(systemName: "eye")
+                        .onLongPressGesture(
+                            minimumDuration: 1,
+                            perform: {},
+                            onPressingChanged: { isPressing in
+                                isPressing ? viewModel.showPassword() : viewModel.hidePassword()
+                            }
+                        )
+                        .foregroundColor(.blue)
+                        .padding(.trailing)
                 }
                 .frame(height: 40)
                 .border(viewModel.showError ? Color.red : Color.black)
@@ -47,6 +61,24 @@ public struct PasswordTextFieldView: View {
             }
         }
     }
+
+    //    public var stack: some View {
+    //        HStack {
+    //            SecureField(
+    //                viewModel.icon == nil ? "" : viewModel.hint,
+    //                text: $viewModel.inputText
+    //            )
+    //            .keyboardType(viewModel.keyboardType)
+    //
+    //            Button {
+    //
+    //            } label: {
+    //                Image(systemName: "eye")
+    //            }
+    //            .padding(.trailing)
+    //        }
+    //        .frame(height: 40)
+    //    }
 }
 
 struct PasswordTextFieldView_Previews: PreviewProvider {

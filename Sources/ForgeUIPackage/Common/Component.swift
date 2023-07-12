@@ -14,6 +14,8 @@ public class Component: Identifiable, Codable {
         case loginPassword = "LOGIN_PASSWORD"
         case loginButton = "LOGIN_BUTTON"
         case loginForgotPassword = "LOGIN_FORGOT_PASSWORD_BUTTON"
+        case loginTitle = "LOGIN_TITLE"
+        case loginChip = "LOGIN_CODE_CHIP"
     }
 
     public enum ComponentType: String, Codable {
