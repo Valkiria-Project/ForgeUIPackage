@@ -1,8 +1,10 @@
 {
     "type": "BUTTON",
     "icon": "touchid",
-    "style": "QUIET",
-    "onClick": "DISMISS",
+    "style": "TRANSPARENT",
+    "size": "FULL_WIDTH",
+    "text_style": "BUTTON_1",
+    "on_click": "DISMISS",
     "margins": {
         "top": 0,
         "left": 0,

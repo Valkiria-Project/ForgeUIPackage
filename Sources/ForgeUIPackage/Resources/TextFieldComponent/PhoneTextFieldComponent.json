@@ -1,8 +1,10 @@
 {
-    "type": "TEXTFIELD",
-    "keyboardType": "PHONE",
-    "hint": "Phone TextField Hint",
-    "regex": "",
+    "type": "TEXT_FIELD",
+    "identifier": "EMAIL_TEXT_FIELD",
+    "keyboard_type": "EMAIL",
+    "text_style": "HEADLINE_5",
+    "placeholder": "Phone TextField Hint",
+    "validations": [],
     "margins": {
         "top": 0,
         "left": 0,

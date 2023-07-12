@@ -19,24 +19,29 @@ final class ComponentsTests: XCTestCase {
     func testButtonCodableComponent() throws {
         // Loud
         XCTAssertNoThrow(try ButtonComponent.loudTextAndIconButtonExample())
-        XCTAssertNoThrow(try ButtonComponent.loudIconOnlyButtonExample())
-        XCTAssertNoThrow(try ButtonComponent.loudTextOnlyButtonExample())
 
         // Quiet
-        XCTAssertNoThrow(try ButtonComponent.quietIconOnlyButtonExample())
-        XCTAssertNoThrow(try ButtonComponent.quietTextOnlyButtonExample())
         XCTAssertNoThrow(try ButtonComponent.quietTextAndIconButtonExample())
 
         // Secondary
-        XCTAssertNoThrow(try ButtonComponent.secondaryIconOnlyButtonExample())
-        XCTAssertNoThrow(try ButtonComponent.secondaryTextOnlyButtonExample())
         XCTAssertNoThrow(try ButtonComponent.secondaryTextAndIconButtonExample())
+
+        //Transparent
+        XCTAssertNoThrow(try ButtonComponent.transparentButtonExample())
     }
 
     func testTextFieldCodableComponent() throws {
-        _ = try TextFieldComponent.numericTextField()
-        _ = try TextFieldComponent.emailTextField()
-        _ = try TextFieldComponent.nameTextField()
-        _ = try TextFieldComponent.phoneTextField()
+        XCTAssertNoThrow(try TextFieldComponent.numericTextField())
+        XCTAssertNoThrow(try TextFieldComponent.emailTextField())
+        XCTAssertNoThrow(try TextFieldComponent.nameTextField())
+        XCTAssertNoThrow(try TextFieldComponent.phoneTextField())
+    }
+
+    func testChipCodableComponent() throws {
+        XCTAssertNoThrow(try ChipComponent.example())
+    }
+
+    func testPasswordTextFieldCodableComponent() throws {
+        XCTAssertNoThrow(try PasswordTextFieldComponent.example())
     }
 }

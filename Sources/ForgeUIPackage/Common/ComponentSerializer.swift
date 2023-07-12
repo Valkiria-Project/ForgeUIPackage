@@ -10,7 +10,11 @@ import Foundation
 let componentTypes: [String: Component.Type] = [
     "LABEL": LabelComponent.self,
     "TEXT_FIELD": TextFieldComponent.self,
-    "BUTTON": ButtonComponent.self
+    "BUTTON": ButtonComponent.self,
+    "CHIP": ChipComponent.self,
+    "TERMS_AND_CONDITIONS": TermsAndConditions.self,
+    "RICH_LABEL": RichLabelComponent.self,
+    "PASSWORD_TEXT_FIELD": PasswordTextFieldComponent.self
 ]
 
 public struct ComponentSerializer: Codable {

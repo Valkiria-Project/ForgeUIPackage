@@ -1,7 +1,7 @@
 {
     "type": "LABEL",
     "text": "Heading Label",
-    "style": "HEADING",
+    "text_style": "HEADLINE_3",
     "margins": {
         "top": 0,
         "left": 0,

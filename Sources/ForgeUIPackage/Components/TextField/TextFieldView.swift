@@ -8,13 +8,13 @@
 import SwiftUI
 
 public struct TextFieldView: View {
-
+    
     @ObservedObject private var viewModel: TextFieldViewModel
-
+    
     public init(viewModel: TextFieldViewModel) {
         self.viewModel = viewModel
     }
-
+    
     public var body: some View {
         HStack {
             if let icon = viewModel.icon {
@@ -26,12 +26,14 @@ public struct TextFieldView: View {
                 if viewModel.icon == nil {
                     Text(viewModel.hint)
                 }
+                
                 TextField(viewModel.icon == nil ? "" : viewModel.hint, text: $viewModel.inputText)
                     .keyboardType(viewModel.keyboardType)
                     .frame(height: 40)
                     .border(viewModel.showError ? Color.red : Color.black)
-                if viewModel.showError {
-                    Text(viewModel.errorMessage)
+                
+                if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
                         .foregroundColor(Color.red)
                         .padding([.leading])
                 }
@@ -42,40 +44,40 @@ public struct TextFieldView: View {
 
 struct EmailTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView(
-            viewModel: .init(
-                component: try! .emailTextField()
-            )
-        )
+        let component: TextFieldComponent = try! .numericTextField()
+        let viewModel = TextFieldViewModel( component: component) {
+            print("newValue: \($1)")
+        }
+        TextFieldView(viewModel: viewModel)
     }
 }
 
 struct NameTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView(
-            viewModel: .init(
-                component: try! .nameTextField()
-            )
-        )
+        let component: TextFieldComponent = try! .nameTextField()
+        let viewModel = TextFieldViewModel(component: component) {
+            print("newValue: \($1)")
+        }
+        TextFieldView(viewModel: viewModel)
     }
 }
 
 struct NumericTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView(
-            viewModel: .init(
-                component: try! .numericTextField()
-            )
-        )
+        let component: TextFieldComponent = try! .numericTextField()
+        let viewModel = TextFieldViewModel(component: component) {
+            print("newValue: \($1)")
+        }
+        TextFieldView(viewModel: viewModel)
     }
 }
 
 struct PhoneTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView(
-            viewModel: .init(
-                component: try! .phoneTextField()
-            )
-        )
+        let component: TextFieldComponent = try! .phoneTextField()
+        let viewModel = TextFieldViewModel(component: component) {
+            print("newValue: \($1)")
+        }
+        TextFieldView(viewModel: viewModel)
     }
 }

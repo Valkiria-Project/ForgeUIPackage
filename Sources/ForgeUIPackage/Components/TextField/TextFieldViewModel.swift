@@ -10,33 +10,37 @@ import SwiftUI
 
 public class TextFieldViewModel: ObservableObject {
 
-    @Published public var inputText: String = ""
+    @Published public var inputText: String = "" {
+        didSet {
+            closure(identifier, inputText)
+        }
+    }
     @Published public var showError: Bool = false
 
+    public let identifier: Component.Identifier?
     public let hint: String
     public let keyboardType: UIKeyboardType
-    public let margins: Margin
+    public let margins: Component.Margin
     public let icon: String?
-    public let errorMessage: String = "Invalid input" // Esto lo debería mandar back
+    public var errorMessage: String?
+    public var closure: (Component.Identifier?, String) -> Void
 
-    let textValidator: TextValidator
-
-    public init(component: TextFieldComponent) {
-        hint = component.hint
+    public init(
+        component: TextFieldComponent,
+        inputClosure: @escaping (Component.Identifier?, String) -> Void
+    ) {
+        closure = inputClosure
+        identifier = component.identifier
+        hint = component.placeholder
         icon = component.icon
         margins = component.margins
-        textValidator = TextValidator(regex: component.regex)
 
         switch component.keyboardType {
         case .numeric: keyboardType = .numberPad
         case .phone: keyboardType = .phonePad
         case .text: keyboardType = .namePhonePad
         case .email: keyboardType = .emailAddress
+        case .password: keyboardType = .emailAddress
         }
-    }
-
-    public func validate() {
-        let isValid = textValidator.validate(text: inputText)
-        showError = !isValid
     }
 }

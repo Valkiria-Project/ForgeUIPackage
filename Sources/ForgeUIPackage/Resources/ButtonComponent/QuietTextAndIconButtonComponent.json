@@ -3,7 +3,9 @@
     "label": "Button label",
     "icon": "touchid",
     "style": "QUIET",
-    "onClick": "DISMISS",
+    "size": "DEFAULT",
+    "text_style": "BUTTON_1",
+    "on_click": "LOGIN",
     "margins": {
         "top": 0,
         "left": 0,

@@ -1,7 +1,7 @@
 {
     "type": "LABEL",
     "text": "Body Label",
-    "style": "BODY",
+    "text_style": "HEADLINE_2",
     "margins": {
         "top": 0,
         "left": 0,
