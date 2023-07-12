@@ -12,7 +12,7 @@ let componentTypes: [String: Component.Type] = [
     "TEXT_FIELD": TextFieldComponent.self,
     "BUTTON": ButtonComponent.self,
     "CHIP": ChipComponent.self,
-    "TERMS_AND_CONDITIONS": TermsAndConditions.self,
+    "TERMS_AND_CONDITIONS": TermsAndConditionsComponent.self,
     "RICH_LABEL": RichLabelComponent.self,
     "PASSWORD_TEXT_FIELD": PasswordTextFieldComponent.self
 ]
