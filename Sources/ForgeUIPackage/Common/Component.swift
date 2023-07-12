@@ -10,10 +10,10 @@ import Foundation
 public class Component: Identifiable, Codable {
 
     public enum Identifier: String, Codable {
-        case emailTextField = "EMAIL_TEXT_FIELD"
-        case passwordTextField = "PASSWORD_TEXT_FIELD"
+        case loginEmail = "LOGIN_EMAIL"
+        case loginPassword = "LOGIN_PASSWORD"
         case loginButton = "LOGIN_BUTTON"
-        case forgotPasswordButton = "FORGOT_PASSWORD_BUTTON"
+        case loginForgotPassword = "LOGIN_FORGOT_PASSWORD_BUTTON"
     }
 
     public enum ComponentType: String, Codable {
@@ -42,7 +42,7 @@ public class Component: Identifiable, Codable {
 
     public let id: UUID
     public let identifier: Identifier?
-    public let textStyle: TextStyle
+    public let textStyle: TextStyle?
     public let margins: Margin
     public let type: ComponentType
 
@@ -68,7 +68,7 @@ public class Component: Identifiable, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = UUID()
         self.identifier = try container.decodeIfPresent(Identifier.self, forKey: .identifier)
-        self.textStyle = try container.decode(TextStyle.self, forKey: .textStyle)
+        self.textStyle = try container.decodeIfPresent(TextStyle.self, forKey: .textStyle)
         self.margins = try container.decode(Margin.self, forKey: .margins)
         self.type = try container.decode(ComponentType.self, forKey: .type)
     }
