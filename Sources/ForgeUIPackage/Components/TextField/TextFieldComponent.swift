@@ -15,28 +15,22 @@ public enum KeyboardType: String, Codable {
     case password = "PASSWORD"
 }
 
-//public enum TextFieldStyle: String, Codable {
-//    case primary = "PRIMARY"
-//    case link = "LINK"
-//    case fingerprint = "FINGERPRINT"
-//}
-
 public class TextFieldComponent: Component {
-    public private(set) var hint: String
+    public private(set) var placeholder: String
     public private(set) var validations: [RegexValidation]
     public private(set) var keyboardType: KeyboardType
     public private(set) var icon: String?
 
     public init(
         identifier: Component.Identifier? = nil,
-        hint: String,
+        placeholder: String,
         icon: String? = nil,
         validations: [RegexValidation],
         keyboardType: KeyboardType,
         textStyle: Component.TextStyle,
         margins: Component.Margin
     ) {
-        self.hint = hint
+        self.placeholder = placeholder
         self.icon = icon
         self.validations = validations
         self.keyboardType = keyboardType
@@ -44,13 +38,13 @@ public class TextFieldComponent: Component {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case hint, validations, icon
+        case placeholder, validations, icon
         case keyboardType = "keyboard_type"
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.hint = try container.decode(String.self, forKey: .hint)
+        self.placeholder = try container.decode(String.self, forKey: .placeholder)
         self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
         self.validations = try container.decode([RegexValidation].self, forKey: .validations)
         self.keyboardType = try container.decode(KeyboardType.self, forKey: .keyboardType)

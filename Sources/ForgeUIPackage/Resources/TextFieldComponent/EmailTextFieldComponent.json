@@ -1,15 +1,11 @@
 {
-    "type": "TEXTFIELD",
+    "type": "TEXT_FIELD",
     "textfield_identifier": "EMAIL",
-    "keyboardType": "EMAIL",
-    "hint": "Email hint placeholder",
+    "keyboard_type": "EMAIL",
+    "text_style": "HEADLINE_5",
+    "placeholder": "Email hint placeholder",
     "icon": "person.circle",
-    "validations": [
-        {
-            "regex": "^(?!\s*$).+",
-            "message": "El campo no debe estar vacío"
-        }
-    ],
+    "validations": [],
     "margins": {
         "top": 0,
         "left": 0,

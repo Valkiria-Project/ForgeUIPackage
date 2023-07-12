@@ -31,7 +31,7 @@ public class TextFieldViewModel: ObservableObject {
     ) {
         closure = inputClosure
         identifier = component.identifier
-        hint = component.hint
+        hint = component.placeholder
         icon = component.icon
         margins = component.margins
 

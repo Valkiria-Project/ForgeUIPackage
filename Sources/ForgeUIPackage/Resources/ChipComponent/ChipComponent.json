@@ -1,6 +1,7 @@
 {
     "text": "1234",
     "icon": "YourIcon",
+    "type": "CHIP",
     "style": "PRIMARY",
     "text_style": "HEADLINE_5",
     "margins": {
