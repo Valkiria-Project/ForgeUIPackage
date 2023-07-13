@@ -9,37 +9,6 @@ import Foundation
 
 public class Component: Identifiable, Codable {
 
-    public enum Identifier: String, Codable {
-        case loginEmail = "LOGIN_EMAIL"
-        case loginPassword = "LOGIN_PASSWORD"
-        case loginButton = "LOGIN_BUTTON"
-        case loginForgotPassword = "LOGIN_FORGOT_PASSWORD_BUTTON"
-    }
-
-    public enum ComponentType: String, Codable {
-        case label = "LABEL"
-        case textField = "TEXT_FIELD"
-        case button = "BUTTON"
-        case chip = "CHIP"
-        case termsAndConditions = "TERMS_AND_CONDITIONS"
-        case richLabel = "RICH_LABEL"
-        case passwordTextField = "PASSWORD_TEXT_FIELD"
-    }
-
-    public enum TextStyle: String, Codable {
-        case headline1 = "HEADLINE_1"
-        case headline2 = "HEADLINE_2"
-        case headline3 = "HEADLINE_3"
-        case headline4 = "HEADLINE_4"
-        case headline5 = "HEADLINE_5"
-        case headline6 = "HEADLINE_6"
-        case headline7 = "HEADLINE_7"
-        case headline8 = "HEADLINE_8"
-        case body1 = "BODY_1"
-        case button1 = "BUTTON_1"
-        case button2 = "BUTTON_2"
-    }
-
     public let id: UUID
     public let identifier: Identifier?
     public let textStyle: TextStyle?

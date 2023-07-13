@@ -14,6 +14,7 @@ public class ButtonViewModel {
     public let icon: String?
     public let style: ButtonComponent.Style
     public let size: ButtonComponent.Size?
+    public let textStyle: ButtonComponent.TextStyle?
     public let margins: Component.Margin
     public var buttonAction: () -> Void
 
@@ -23,6 +24,7 @@ public class ButtonViewModel {
         icon = component.icon
         style = component.style
         size = component.size
+        textStyle = component.textStyle
         margins = component.margins
         self.buttonAction = {
             buttonAction(component.onClick)
