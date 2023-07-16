@@ -43,6 +43,7 @@ extension Component {
         case termsAndConditions = "TERMS_AND_CONDITIONS"
         case richLabel = "RICH_LABEL"
         case passwordTextField = "PASSWORD_TEXT_FIELD"
+        case labeledSwitch = "LABELED_SWITCH"
     }
 
     public enum TextStyle: String, Codable {
