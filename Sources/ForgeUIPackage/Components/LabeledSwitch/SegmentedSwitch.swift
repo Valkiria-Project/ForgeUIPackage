@@ -1,5 +1,5 @@
 //
-//  LabeledSwitch.swift
+//  SegmentedSwitch.swift
 //  
 //
 //  Created by Ricardo Grajales Duque on 15/07/23.
