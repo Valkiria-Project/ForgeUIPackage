@@ -9,23 +9,20 @@ import Foundation
 
 public class SegmentedSwitch: Component {
     public let text: String
-    public let toggle: Bool
     public let options: [Option]
 
     private enum CodingKeys: String, CodingKey {
-        case text, toggle, options
+        case text, options
     }
 
     public init(
         identifier: Component.Identifier? = nil,
         text: String,
-        toggle: Bool,
         options: [SegmentedSwitch.Option],
         textStyle: Component.TextStyle,
         margins: Margin
     ) {
         self.text = text
-        self.toggle = toggle
         self.options = options
         super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .chip)
     }
@@ -33,7 +30,6 @@ public class SegmentedSwitch: Component {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.text = try container.decode(String.self, forKey: .text)
-        self.toggle = try container.decode(Bool.self, forKey: .toggle)
         self.options = try container.decode([Option].self, forKey: .options)
         try super.init(from: decoder)
     }
