@@ -8,18 +8,15 @@
 import Foundation
 
 public enum Action: Codable, RawRepresentable, Equatable {
-    case deviceAuth
     case dismiss
     case action(String)
 
     enum CodingKeys: String, CodingKey {
         case dismiss = "DISMISS"
-        case deviceAuth = "DEVICE_AUTH"
     }
 
     public var rawValue: String {
         switch self {
-        case .deviceAuth: return CodingKeys.deviceAuth.rawValue
         case .dismiss: return CodingKeys.dismiss.rawValue
         case .action(let rawValue): return rawValue
         }
@@ -27,7 +24,6 @@ public enum Action: Codable, RawRepresentable, Equatable {
 
     public init?(rawValue: String) {
         switch CodingKeys(rawValue: rawValue.uppercased()) {
-        case .deviceAuth: self = .deviceAuth
         case .dismiss: self = .dismiss
         default: self = .action(rawValue)
         }
