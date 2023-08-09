@@ -44,4 +44,8 @@ final class ComponentsTests: XCTestCase {
     func testPasswordTextFieldCodableComponent() throws {
         XCTAssertNoThrow(try PasswordTextFieldComponent.example())
     }
+
+    func testCardCodableComponent() throws {
+        XCTAssertNoThrow(try CardComponent.example())
+    }
 }

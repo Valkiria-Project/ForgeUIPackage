@@ -15,7 +15,9 @@ let componentTypes: [String: Component.Type] = [
     "TERMS_AND_CONDITIONS": TermsAndConditionsComponent.self,
     "RICH_LABEL": RichLabelComponent.self,
     "PASSWORD_TEXT_FIELD": PasswordTextFieldComponent.self,
-    "SEGMENTED_SWITCH": SegmentedSwitch.self
+    "SEGMENTED_SWITCH": SegmentedSwitch.self,
+    "CREW_MEMBER_CARD": CardComponent.self,
+    "BODY_REPORT_DETAIL": DetailScreen.ReportDetail.self
 
 ]
 
