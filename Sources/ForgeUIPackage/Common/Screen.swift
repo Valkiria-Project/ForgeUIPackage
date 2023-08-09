@@ -78,6 +78,10 @@ public struct Screen: Codable {
 
 public struct Body {
     public var components: [Component]
+
+    public init(components: [Component]) {
+        self.components = components
+    }
 }
 
 // MARK: - Codable Body
