@@ -44,6 +44,8 @@ extension Component {
         case richLabel = "RICH_LABEL"
         case passwordTextField = "PASSWORD_TEXT_FIELD"
         case segmentedSwitch = "SEGMENTED_SWITCH"
+        case card = "CREW_MEMBER_CARD"
+        case reportDetail = "BODY_REPORT_DETAIL"
     }
 
     public enum TextStyle: String, Codable {

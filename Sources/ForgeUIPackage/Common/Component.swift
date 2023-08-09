@@ -22,7 +22,7 @@ public class Component: Identifiable, Codable {
 
     init(
         identifier: Identifier? = nil,
-        textStyle: TextStyle,
+        textStyle: TextStyle? = nil,
         margins: Margin,
         type: ComponentType
     ) {
