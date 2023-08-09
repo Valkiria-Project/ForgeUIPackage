@@ -68,10 +68,20 @@ public struct Screen: Codable {
     public var header: Header?
     public var body: Body
     public var footer: Footer?
+
+    public init(header: Header? = nil, body: Body, footer: Footer? = nil) {
+        self.header = header
+        self.body = body
+        self.footer = footer
+    }
 }
 
 public struct Body {
     public var components: [Component]
+
+    public init(components: [Component]) {
+        self.components = components
+    }
 }
 
 // MARK: - Codable Body
