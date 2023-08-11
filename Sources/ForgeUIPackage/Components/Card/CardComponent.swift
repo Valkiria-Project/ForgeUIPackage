@@ -9,8 +9,8 @@ import Foundation
 
 public class CardComponent: Component {
     public struct Pill: Codable {
-        let title: Content
-        let color: String
+        public let title: Content
+        public let color: String
 
         public init(title: Content, color: String) {
             self.title = title
@@ -21,12 +21,17 @@ public class CardComponent: Component {
     public struct CardChipSection: Codable {
 
         public struct List: Codable {
-            let text: [String]
-            let textStyle: Component.TextStyle
+            public let text: [String]
+            public let textStyle: Component.TextStyle
 
             private enum CodingKeys: String, CodingKey {
                 case text
                 case textStyle = "text_style"
+            }
+
+            public init(text: [String], textStyle: Component.TextStyle) {
+                self.text = text
+                self.textStyle = textStyle
             }
         }
 
