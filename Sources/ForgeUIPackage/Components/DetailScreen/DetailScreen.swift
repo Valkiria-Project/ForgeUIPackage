@@ -10,10 +10,10 @@ import Foundation
 public struct DetailScreen: Codable {
 
     public class ReportDetail: Component {
-        let images: [String]
-        let title: Component.Content
-        let subtitle: Component.Content
-        let hour: Component.Content
+        public let images: [String]
+        public let title: Component.Content
+        public let subtitle: Component.Content
+        public let hour: Component.Content
 
         private enum CodingKeys: String, CodingKey {
             case images, title, subtitle, hour
@@ -44,8 +44,8 @@ public struct DetailScreen: Codable {
         }
     }
 
-    let header: Header
-    let details: Body
+    public let header: Header
+    public let details: Body
 
     public init(header: Header, details: Body) {
         self.header = header
