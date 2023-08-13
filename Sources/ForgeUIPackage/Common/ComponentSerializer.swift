@@ -17,8 +17,8 @@ let componentTypes: [String: Component.Type] = [
     "PASSWORD_TEXT_FIELD": PasswordTextFieldComponent.self,
     "SEGMENTED_SWITCH": SegmentedSwitch.self,
     "CREW_MEMBER_CARD": CardComponent.self,
-    "BODY_REPORT_DETAIL": DetailScreen.ReportDetail.self
-
+    "BODY_REPORT_DETAIL": DetailScreen.ReportDetail.self,
+    "FINGERPRINT": FingerprintComponent.self
 ]
 
 public struct ComponentSerializer: Codable {
