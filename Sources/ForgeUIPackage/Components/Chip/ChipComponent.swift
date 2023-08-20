@@ -10,11 +10,12 @@ import Foundation
 public class ChipComponent: Component {
 
     public let text: String
-    public let icon: String
+    public let icon: String?
     public let style: Style
 
     public enum Style: String, Codable {
         case primary = "PRIMARY"
+        case secondary = "SECONDARY"
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -24,7 +25,7 @@ public class ChipComponent: Component {
     public init(
         identifier: Component.Identifier? = nil,
         text: String,
-        icon: String,
+        icon: String?,
         style: Style,
         textStyle: Component.TextStyle,
         margins: Margin,
@@ -39,7 +40,7 @@ public class ChipComponent: Component {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.text = try container.decode(String.self, forKey: .text)
-        self.icon = try container.decode(String.self, forKey: .icon)
+        self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
         self.style = try container.decode(Style.self, forKey: .style)
         try super.init(from: decoder)
     }
