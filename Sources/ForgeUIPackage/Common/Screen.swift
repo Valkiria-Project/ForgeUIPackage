@@ -48,7 +48,7 @@ public struct Header: Codable {
 
 public struct Footer: Codable {
     public var leftButton: ButtonComponent
-    public var rightButton: ButtonComponent
+    public var rightButton: ButtonComponent?
 
     enum CodingKeys: String, CodingKey {
         case leftButton = "left_button"
