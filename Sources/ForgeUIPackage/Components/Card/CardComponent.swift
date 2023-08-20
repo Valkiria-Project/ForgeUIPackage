@@ -70,7 +70,8 @@ public class CardComponent: Component {
         date: Component.Content,
         chipSection: CardChipSection?,
         reportsDetail: DetailScreen?,
-        margins: Component.Margin
+        margins: Component.Margin,
+        arrangement: Component.Arrangement
     ) {
         self.icon = icon
         self.title = title
@@ -78,7 +79,7 @@ public class CardComponent: Component {
         self.date = date
         self.chipSection = chipSection
         self.reportsDetail = reportsDetail
-        super.init(identifier:identifier, margins: margins, type: .card)
+        super.init(identifier:identifier, margins: margins, type: .card, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {

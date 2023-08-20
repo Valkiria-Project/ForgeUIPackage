@@ -28,13 +28,14 @@ public class TextFieldComponent: Component {
         validations: [RegexValidation],
         keyboardType: KeyboardType,
         textStyle: Component.TextStyle,
-        margins: Component.Margin
+        margins: Component.Margin,
+        arrangement: Component.Arrangement
     ) {
         self.placeholder = placeholder
         self.icon = icon
         self.validations = validations
         self.keyboardType = keyboardType
-        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .textField)
+        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .textField, arrangement: arrangement)
     }
 
     private enum CodingKeys: String, CodingKey {

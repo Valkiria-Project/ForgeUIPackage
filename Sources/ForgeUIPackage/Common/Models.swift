@@ -83,5 +83,11 @@ extension Component {
             self.bottom = bottom
         }
     }
+
+    public enum Arrangement: String, Codable {
+        case start = "START"
+        case center = "CENTER"
+        case end = "END"
+    }
 }
 

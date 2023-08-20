@@ -18,10 +18,11 @@ public class RichLabelComponent: Component {
         identifier: Component.Identifier?,
         text: String,
         textStyle: Component.TextStyle,
-        margins: Component.Margin
+        margins: Component.Margin,
+        arrangement: Component.Arrangement
     ) {
         self.text = text
-        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .richLabel)
+        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .richLabel, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {

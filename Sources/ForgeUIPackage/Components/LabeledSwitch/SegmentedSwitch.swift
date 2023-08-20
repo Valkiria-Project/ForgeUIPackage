@@ -20,11 +20,12 @@ public class SegmentedSwitch: Component {
         text: String,
         options: [SegmentedSwitch.Option],
         textStyle: Component.TextStyle,
-        margins: Margin
+        margins: Margin,
+        arrangement: Component.Arrangement
     ) {
         self.text = text
         self.options = options
-        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .chip)
+        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .chip, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {
