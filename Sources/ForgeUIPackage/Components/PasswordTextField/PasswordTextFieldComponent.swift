@@ -18,12 +18,13 @@ public class PasswordTextFieldComponent: Component {
         icon: String? = nil,
         validations: [RegexValidation],
         textStyle: Component.TextStyle,
-        margins: Component.Margin
+        margins: Component.Margin,
+        arrangement: Component.Arrangement
     ) {
         self.placeholder = placeholder
         self.icon = icon
         self.validations = validations
-        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .textField)
+        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .textField, arrangement: arrangement)
     }
 
     private enum CodingKeys: String, CodingKey {

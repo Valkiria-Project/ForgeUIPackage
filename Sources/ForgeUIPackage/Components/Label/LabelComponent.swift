@@ -17,10 +17,11 @@ public class LabelComponent: Component {
     public init(
         text: String,
         textStyle: Component.TextStyle,
-        margins: Component.Margin
+        margins: Component.Margin,
+        arrangement: Component.Arrangement
     ) {
         self.text = text
-        super.init(textStyle: textStyle, margins: margins, type: .label)
+        super.init(textStyle: textStyle, margins: margins, type: .label, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {

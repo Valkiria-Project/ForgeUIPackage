@@ -25,13 +25,14 @@ public struct DetailScreen: Codable {
             title: Component.Content,
             subtitle: Component.Content,
             hour: Component.Content,
-            margins: Component.Margin
+            margins: Component.Margin,
+            arrangement: Component.Arrangement
         ) {
             self.images = images
             self.title = title
             self.subtitle = subtitle
             self.hour = hour
-            super.init(identifier: identifier, margins: margins, type: .reportDetail)
+            super.init(identifier: identifier, margins: margins, type: .reportDetail, arrangement: arrangement)
         }
 
         public required init(from decoder: Decoder) throws {

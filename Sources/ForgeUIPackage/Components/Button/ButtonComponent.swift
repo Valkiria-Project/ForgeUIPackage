@@ -40,14 +40,15 @@ public class ButtonComponent: Component {
         size: ButtonComponent.Size,
         onClick: Action,
         textStyle: Component.TextStyle,
-        margins: Component.Margin
+        margins: Component.Margin,
+        arrangement: Component.Arrangement
     ) {
         self.label = label
         self.icon = icon
         self.style = style
         self.onClick = onClick
         self.size = size
-        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .button)
+        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .button, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {
