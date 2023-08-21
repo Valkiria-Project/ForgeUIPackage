@@ -48,18 +48,22 @@ public struct Header: Codable {
 
 public struct Footer: Codable {
     public var leftButton: ButtonComponent
+    public var middleButton: ButtonComponent?
     public var rightButton: ButtonComponent?
 
     enum CodingKeys: String, CodingKey {
         case leftButton = "left_button"
+        case middleButton = "middle_button"
         case rightButton = "right_button"
     }
 
     public init(
         leftButton: ButtonComponent,
+        middleButton: ButtonComponent,
         rightButton: ButtonComponent
     ) {
         self.rightButton = rightButton
+        self.middleButton = middleButton
         self.leftButton = leftButton
     }
 }
