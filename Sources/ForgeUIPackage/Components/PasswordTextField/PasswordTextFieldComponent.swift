@@ -13,7 +13,7 @@ public class PasswordTextFieldComponent: Component {
     public private(set) var icon: String?
 
     public init(
-        identifier: Component.Identifier? = nil,
+        id: String,
         placeholder: String,
         icon: String? = nil,
         validations: [RegexValidation],
@@ -24,7 +24,7 @@ public class PasswordTextFieldComponent: Component {
         self.placeholder = placeholder
         self.icon = icon
         self.validations = validations
-        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .textField, arrangement: arrangement)
+        super.init(id: id, textStyle: textStyle, margins: margins, type: .textField, arrangement: arrangement)
     }
 
     private enum CodingKeys: String, CodingKey {
