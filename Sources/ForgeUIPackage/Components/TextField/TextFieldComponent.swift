@@ -19,6 +19,7 @@ public class TextFieldComponent: Component {
 
     public enum Style: String, Codable {
         case filled = "FILLED"
+        case outlined = "OUTLINED"
     }
 
     public private(set) var placeholder: String
@@ -28,13 +29,13 @@ public class TextFieldComponent: Component {
     public private(set) var icon: String?
 
     public init(
-        identifier: Component.Identifier? = nil,
+        id: String,
         placeholder: String,
         icon: String? = nil,
         validations: [RegexValidation],
         keyboardType: KeyboardType,
         textStyle: Component.TextStyle,
-        style: Style? = nil,
+        style: Style,
         margins: Component.Margin,
         arrangement: Component.Arrangement
     ) {
@@ -43,7 +44,7 @@ public class TextFieldComponent: Component {
         self.validations = validations
         self.style = style
         self.keyboardType = keyboardType
-        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .textField, arrangement: arrangement)
+        super.init(id: id, textStyle: textStyle, margins: margins, type: .textField, arrangement: arrangement)
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -55,7 +56,7 @@ public class TextFieldComponent: Component {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.placeholder = try container.decode(String.self, forKey: .placeholder)
         self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
-        self.style = try container.decodeIfPresent(Style.self, forKey: .style)
+        self.style = try container.decode(Style.self, forKey: .style)
         self.validations = try container.decode([RegexValidation].self, forKey: .validations)
         self.keyboardType = try container.decode(KeyboardType.self, forKey: .keyboardType)
         try super.init(from: decoder)

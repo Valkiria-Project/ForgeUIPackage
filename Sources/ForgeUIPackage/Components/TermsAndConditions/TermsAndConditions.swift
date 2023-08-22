@@ -10,7 +10,7 @@ import Foundation
 public class TermsAndConditionsComponent: Component {
 
     public init(margins: Component.Margin, arrangement: Component.Arrangement) {
-        super.init(textStyle: .body1, margins: margins, type: .termsAndConditions, arrangement: arrangement)
+        super.init(id: .init(), textStyle: .body1, margins: margins, type: .termsAndConditions, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {

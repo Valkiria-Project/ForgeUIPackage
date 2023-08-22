@@ -20,7 +20,7 @@ public struct DetailScreen: Codable {
         }
 
         public init(
-            identifier: Component.Identifier?,
+            id: String,
             images: [String],
             title: Component.Content,
             subtitle: Component.Content,
@@ -32,7 +32,7 @@ public struct DetailScreen: Codable {
             self.title = title
             self.subtitle = subtitle
             self.hour = hour
-            super.init(identifier: identifier, margins: margins, type: .reportDetail, arrangement: arrangement)
+            super.init(id: id, margins: margins, type: .reportDetail, arrangement: arrangement)
         }
 
         public required init(from decoder: Decoder) throws {

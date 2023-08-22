@@ -16,7 +16,7 @@ public class SegmentedSwitch: Component {
     }
 
     public init(
-        identifier: Component.Identifier? = nil,
+        id: String,
         text: String,
         options: [SegmentedSwitch.Option],
         textStyle: Component.TextStyle,
@@ -25,7 +25,7 @@ public class SegmentedSwitch: Component {
     ) {
         self.text = text
         self.options = options
-        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .chip, arrangement: arrangement)
+        super.init(id: id, textStyle: textStyle, margins: margins, type: .chip, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {

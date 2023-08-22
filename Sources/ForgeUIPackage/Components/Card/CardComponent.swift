@@ -63,7 +63,7 @@ public class CardComponent: Component {
     }
 
     public init(
-        identifier: Component.Identifier? = nil,
+        id: String,
         icon: String,
         title: Component.Content,
         pill: Pill,
@@ -79,7 +79,7 @@ public class CardComponent: Component {
         self.date = date
         self.chipSection = chipSection
         self.reportsDetail = reportsDetail
-        super.init(identifier:identifier, margins: margins, type: .card, arrangement: arrangement)
+        super.init(id: id, margins: margins, type: .card, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {

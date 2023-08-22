@@ -23,7 +23,7 @@ public class ChipComponent: Component {
     }
 
     public init(
-        identifier: Component.Identifier? = nil,
+        id: String,
         text: String,
         icon: String?,
         style: Style,
@@ -34,7 +34,7 @@ public class ChipComponent: Component {
         self.text = text
         self.icon = icon
         self.style = style
-        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .chip, arrangement: arrangement)
+        super.init(id: id, textStyle: textStyle, margins: margins, type: .chip, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {
