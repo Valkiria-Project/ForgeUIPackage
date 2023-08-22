@@ -8,8 +8,6 @@
 import Foundation
 
 public class Component: Identifiable, Codable {
-
-//    public let id: UUID
     public let id: String
     public let textStyle: TextStyle?
     public let margins: Margin
