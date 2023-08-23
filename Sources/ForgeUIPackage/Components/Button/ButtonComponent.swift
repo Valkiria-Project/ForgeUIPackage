@@ -33,7 +33,7 @@ public class ButtonComponent: Component {
     }
 
     public init(
-        identifier: Component.Identifier? = nil,
+        id: String,
         label: String?,
         icon: String?,
         style: Style,
@@ -48,7 +48,7 @@ public class ButtonComponent: Component {
         self.style = style
         self.onClick = onClick
         self.size = size
-        super.init(identifier: identifier, textStyle: textStyle, margins: margins, type: .button, arrangement: arrangement)
+        super.init(id: id, textStyle: textStyle, margins: margins, type: .button, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {
