@@ -15,13 +15,14 @@ public class FindingComponent: Component {
     }
 
     public init(
+        id: String,
         segmentedSwitch: SegmentedSwitch,
         textStyle: Component.TextStyle,
         margins: Component.Margin,
         arrangement: Component.Arrangement
     ) {
         self.segmentedSwitch = segmentedSwitch
-        super.init(textStyle: textStyle, margins: margins, type: .label, arrangement: arrangement)
+        super.init(id: id, textStyle: textStyle, margins: margins, type: .label, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {

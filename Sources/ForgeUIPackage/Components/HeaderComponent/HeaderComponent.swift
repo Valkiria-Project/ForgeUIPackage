@@ -17,6 +17,7 @@ public class HeaderComponent: Component {
     }
 
     public init(
+        id: String,
         text: String,
         leftIcon: String?,
         textStyle: Component.TextStyle,
@@ -25,7 +26,7 @@ public class HeaderComponent: Component {
     ) {
         self.text = text
         self.leftIcon = leftIcon
-        super.init(margins: margins, type: .contentHeader, arrangement: arrangement)
+        super.init(id: id, margins: margins, type: .contentHeader, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {
