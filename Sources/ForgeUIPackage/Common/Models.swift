@@ -47,6 +47,11 @@ extension Component {
         case card = "CREW_MEMBER_CARD"
         case reportDetail = "BODY_REPORT_DETAIL"
         case fingerprint = "FINGERPRINT" //Type required to decode SISEM Login screen
+        case contentHeader = "CONTENT_HEADER"
+        case filters = "FILTERS"
+        case chipOptions = "CHIP_OPTIONS"
+        case finding = "FINDING"
+        case detailedInfoList = "DETAILED_INFO_LIST"
     }
 
     public enum TextStyle: String, Codable {

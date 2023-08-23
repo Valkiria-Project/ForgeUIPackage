@@ -8,17 +8,22 @@
 import Foundation
 
 let componentTypes: [String: Component.Type] = [
-    "LABEL": LabelComponent.self,
-    "TEXT_FIELD": TextFieldComponent.self,
-    "BUTTON": ButtonComponent.self,
-    "CHIP": ChipComponent.self,
-    "TERMS_AND_CONDITIONS": TermsAndConditionsComponent.self,
-    "RICH_LABEL": RichLabelComponent.self,
-    "PASSWORD_TEXT_FIELD": PasswordTextFieldComponent.self,
-    "SEGMENTED_SWITCH": SegmentedSwitch.self,
-    "CREW_MEMBER_CARD": CardComponent.self,
-    "BODY_REPORT_DETAIL": DetailScreen.ReportDetail.self,
-    "FINGERPRINT": FingerprintComponent.self
+    Component.ComponentType.label.rawValue: LabelComponent.self,
+    Component.ComponentType.textField.rawValue: TextFieldComponent.self,
+    Component.ComponentType.button.rawValue: ButtonComponent.self,
+    Component.ComponentType.chip.rawValue: ChipComponent.self,
+    Component.ComponentType.termsAndConditions.rawValue: TermsAndConditionsComponent.self,
+    Component.ComponentType.richLabel.rawValue: RichLabelComponent.self,
+    Component.ComponentType.passwordTextField.rawValue: PasswordTextFieldComponent.self,
+    Component.ComponentType.segmentedSwitch.rawValue: SegmentedSwitch.self,
+    Component.ComponentType.card.rawValue: CardComponent.self,
+    Component.ComponentType.reportDetail.rawValue: DetailScreen.ReportDetail.self,
+    Component.ComponentType.fingerprint.rawValue: FingerprintComponent.self,
+    Component.ComponentType.filters.rawValue: FilterComponent.self,
+    Component.ComponentType.contentHeader.rawValue: HeaderComponent.self,
+    Component.ComponentType.chipOptions.rawValue: ChipOptionComponent.self,
+    Component.ComponentType.finding.rawValue: FindingComponent.self,
+    Component.ComponentType.detailedInfoList.rawValue: DetailedInfoListComponent.self
 ]
 
 public struct ComponentSerializer: Codable {
