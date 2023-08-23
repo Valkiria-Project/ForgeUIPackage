@@ -15,13 +15,14 @@ public class FilterComponent: Component {
     }
 
     public init(
+        id: String,
         options: [String],
         textStyle: Component.TextStyle,
         margins: Component.Margin,
         arrangement: Component.Arrangement
     ) {
         self.options = options
-        super.init(textStyle: textStyle, margins: margins, type: .label, arrangement: arrangement)
+        super.init(id: id, textStyle: textStyle, margins: margins, type: .label, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {
