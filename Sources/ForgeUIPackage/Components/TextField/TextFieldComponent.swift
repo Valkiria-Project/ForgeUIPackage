@@ -25,7 +25,7 @@ public class TextFieldComponent: Component {
     public private(set) var placeholder: String
     public private(set) var validations: [RegexValidation]
     public private(set) var keyboardType: KeyboardType
-    public private(set) var style: Style?
+    public private(set) var style: Style
     public private(set) var icon: String?
 
     public init(
