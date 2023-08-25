@@ -45,10 +45,3 @@ public class ChipComponent: Component {
         try super.init(from: decoder)
     }
 }
-
-extension ChipComponent {
-    static func example() throws -> ChipComponent {
-        let component: ChipComponent = try fromJsonResource(named: "ChipComponent")
-        return component
-    }
-}

@@ -41,9 +41,3 @@ public class PasswordTextFieldComponent: Component {
     }
 }
 
-extension PasswordTextFieldComponent {
-    static func example() throws -> PasswordTextFieldComponent {
-        let textFieldComponent: PasswordTextFieldComponent = try fromJsonResource(named: "PasswordTextFieldComponent")
-        return textFieldComponent
-    }
-}

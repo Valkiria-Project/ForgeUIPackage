@@ -61,26 +61,3 @@ public class ButtonComponent: Component {
         try super.init(from: decoder)
     }
 }
-
-extension ButtonComponent {
-
-    static func quietTextAndIconButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try fromJsonResource(named: "QuietTextAndIconButtonComponent")
-        return component
-    }
-
-    static func loudTextAndIconButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try fromJsonResource(named: "LoudTextAndIconButtonComponent")
-        return component
-    }
-
-    static func secondaryTextAndIconButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try fromJsonResource(named: "SecondaryTextAndIconButtonComponent")
-        return component
-    }
-
-    static func transparentButtonExample() throws -> ButtonComponent {
-        let component: ButtonComponent = try fromJsonResource(named: "TransparentButtonComponent")
-        return component
-    }
-}

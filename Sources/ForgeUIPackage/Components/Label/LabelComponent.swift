@@ -35,20 +35,3 @@ public class LabelComponent: Component {
         try super.init(from: decoder)
     }
 }
-
-extension LabelComponent {
-    static func titleExample() throws -> LabelComponent {
-        let labelComponent: LabelComponent = try fromJsonResource(named: "TitleLabelComponent")
-        return labelComponent
-    }
-
-    static func headingExample() throws -> LabelComponent {
-        let labelComponent: LabelComponent = try fromJsonResource(named: "HeadingLabelComponent")
-        return labelComponent
-    }
-
-    static func bodyExample() throws -> LabelComponent {
-        let labelComponent: LabelComponent = try fromJsonResource(named: "BodyLabelComponent")
-        return labelComponent
-    }
-}
