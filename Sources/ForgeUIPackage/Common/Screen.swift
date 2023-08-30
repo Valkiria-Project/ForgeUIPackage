@@ -50,21 +50,30 @@ public struct Footer: Codable {
     public var leftButton: ButtonComponent
     public var middleButton: ButtonComponent?
     public var rightButton: ButtonComponent?
+    public var direction: Direction
 
     enum CodingKeys: String, CodingKey {
         case leftButton = "left_button"
         case middleButton = "middle_button"
         case rightButton = "right_button"
+        case direction
     }
 
     public init(
         leftButton: ButtonComponent,
-        middleButton: ButtonComponent,
-        rightButton: ButtonComponent
+        middleButton: ButtonComponent?,
+        rightButton: ButtonComponent?,
+        direction: Direction
     ) {
         self.rightButton = rightButton
         self.middleButton = middleButton
         self.leftButton = leftButton
+        self.direction = direction
+    }
+    
+    public enum Direction: String, Codable {
+        case vertical = "VERTICAL"
+        case horizontal = "HORIZONTAL"
     }
 }
 
