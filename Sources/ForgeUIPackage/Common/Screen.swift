@@ -70,10 +70,19 @@ public struct Footer: Codable {
         self.leftButton = leftButton
         self.direction = direction
     }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.leftButton = try container.decode(ButtonComponent.self, forKey: .leftButton)
+        self.middleButton = try container.decodeIfPresent(ButtonComponent.self, forKey: .middleButton)
+        self.rightButton = try container.decodeIfPresent(ButtonComponent.self, forKey: .rightButton)
+//        let direction = try container.decodeIfPresent(Direction.self, forKey: .direction)
+        self.direction = .horizontal
+    }
     
     public enum Direction: String, Codable {
-        case vertical = "VERTICAL"
         case horizontal = "HORIZONTAL"
+        case vertical = "VERTICAL"
     }
 }
 
