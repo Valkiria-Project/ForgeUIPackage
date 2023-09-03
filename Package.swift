@@ -27,5 +27,10 @@ let package = Package(
             name: "ForgeUIPackageTests",
             dependencies: ["ForgeUIPackage"]
         ),
+        .binaryTarget(
+            name: "ForgeUIPackageBinary",
+            url: "https://github.com/Valkiria-Project/ForgeUIPackage/releases/download/36%2Fmerge/ForgeUIPackage.zip",
+            checksum: "521ccdb391cfa6c1e697b8e139268982c59a8e12013b2fa83f291d227f58a439"
+        )
     ]
 )
