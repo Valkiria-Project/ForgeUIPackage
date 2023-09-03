@@ -17,12 +17,11 @@ public class DetailedInfoListComponent: Component {
     public init(
         id: String,
         details: [DetailedInfo],
-        type: ComponentType,
         margins: Component.Margin,
         arrangement: Component.Arrangement
     ) {
         self.details = details
-        super.init(id: id, margins: margins, type: type, arrangement: arrangement)
+        super.init(id: id, margins: margins, type: .detailedInfoList, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {
@@ -32,7 +31,10 @@ public class DetailedInfoListComponent: Component {
     }
 }
 
-public struct DetailedInfo: Codable {
+public struct DetailedInfo: Codable, Identifiable {
+    public var id: String {
+        return label + icon + text
+    }
     public var label: String
     public var icon: String
     public var text: String
