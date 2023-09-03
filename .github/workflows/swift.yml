@@ -15,7 +15,7 @@ env:
 
 jobs:
   build:
-  
+
     runs-on: macos-latest
     
     steps:
@@ -30,7 +30,7 @@ jobs:
       - name: Run tests
         run: xcodebuild -scheme '${{ env.SCHEME }}' -sdk iphonesimulator -destination '${{ env.TEST_DEVICE }}' test
 
-      if: github.event.pull_request.merged
+#      if: github.event.pull_request.merged
       - name: Create XCFramework
         uses: unsignedapps/swift-create-xcframework@v2.3.0
 
