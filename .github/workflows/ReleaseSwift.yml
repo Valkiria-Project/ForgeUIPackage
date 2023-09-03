@@ -14,9 +14,8 @@ env:
   TEST_DEVICE: platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2
 
 jobs:
-  build:
-  
-    if: github.event.pull_request.merged
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: macos-latest
     
     steps:
