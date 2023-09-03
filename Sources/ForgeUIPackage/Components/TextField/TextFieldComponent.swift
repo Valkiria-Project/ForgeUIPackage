@@ -62,25 +62,3 @@ public class TextFieldComponent: Component {
         try super.init(from: decoder)
     }
 }
-
-extension TextFieldComponent {
-    static func emailTextField() throws -> TextFieldComponent {
-        let textFieldComponent: TextFieldComponent = try fromJsonResource(named: "EmailTextFieldComponent")
-        return textFieldComponent
-    }
-
-    static func nameTextField() throws -> TextFieldComponent {
-        let textFieldComponent: TextFieldComponent = try fromJsonResource(named: "NameTextFieldComponent")
-        return textFieldComponent
-    }
-
-    static func numericTextField() throws -> TextFieldComponent {
-        let textFieldComponent: TextFieldComponent = try fromJsonResource(named: "NumericTextFieldComponent")
-        return textFieldComponent
-    }
-
-    static func phoneTextField() throws -> TextFieldComponent {
-        let textFieldComponent: TextFieldComponent = try fromJsonResource(named: "PhoneTextFieldComponent")
-        return textFieldComponent
-    }
-}

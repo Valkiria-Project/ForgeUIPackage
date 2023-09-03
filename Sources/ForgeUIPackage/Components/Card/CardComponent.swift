@@ -93,10 +93,3 @@ public class CardComponent: Component {
         try super.init(from: decoder)
     }
 }
-
-extension CardComponent {
-    static func example() throws -> CardComponent {
-        let component: CardComponent = try fromJsonResource(named: "CardComponent")
-        return component
-    }
-}
