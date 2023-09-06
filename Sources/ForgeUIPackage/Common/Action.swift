@@ -8,8 +8,8 @@
 import Foundation
 
 public enum Action: Codable, RawRepresentable, Equatable {
-    case dismiss
     case closeBottomSheet
+    case dismiss
     case action(String)
 
     enum CodingKeys: String, CodingKey {
