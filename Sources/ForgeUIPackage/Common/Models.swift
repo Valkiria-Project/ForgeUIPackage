@@ -52,6 +52,7 @@ extension Component {
         case chipOptions = "CHIP_OPTIONS"
         case finding = "FINDING"
         case detailedInfoList = "DETAILED_INFO_LIST"
+        case inventoryCheck = "INVENTORY_CHECK"
     }
 
     public enum TextStyle: String, Codable {
