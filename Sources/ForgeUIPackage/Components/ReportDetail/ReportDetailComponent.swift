@@ -35,10 +35,10 @@ public class ReportDetailComponent: Component {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.images =  try container.decode([String].self, forKey: .images)
-        self.title =  try container.decode(Component.Content.self, forKey: .title)
+        self.images = try container.decode([String].self, forKey: .images)
+        self.title = try container.decode(Component.Content.self, forKey: .title)
         self.subtitle = try container.decode(Component.Content.self, forKey: .subtitle)
-        self.hour =  try container.decode(Component.Content.self, forKey: .hour)
+        self.hour = try container.decode(Component.Content.self, forKey: .hour)
         try super.init(from: decoder)
     }
 }
