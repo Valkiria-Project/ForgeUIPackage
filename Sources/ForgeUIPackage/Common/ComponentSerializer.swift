@@ -17,7 +17,7 @@ let componentTypes: [String: Component.Type] = [
     Component.ComponentType.passwordTextField.rawValue: PasswordTextFieldComponent.self,
     Component.ComponentType.segmentedSwitch.rawValue: SegmentedSwitch.self,
     Component.ComponentType.card.rawValue: CardComponent.self,
-    Component.ComponentType.reportDetail.rawValue: DetailScreen.ReportDetail.self,
+    Component.ComponentType.reportDetail.rawValue: ReportDetailComponent.self,
     Component.ComponentType.fingerprint.rawValue: FingerprintComponent.self,
     Component.ComponentType.filters.rawValue: FilterComponent.self,
     Component.ComponentType.contentHeader.rawValue: HeaderComponent.self,
