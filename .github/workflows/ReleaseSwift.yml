@@ -5,11 +5,10 @@ name: Swift
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - 'release/**'
     types:
       - closed
-    tags:
-      - 'v*'
 
 env:
   SCHEME: ForgeUIPackage
