@@ -20,6 +20,7 @@ public class TextFieldComponent: Component {
     public enum Style: String, Codable {
         case filled = "FILLED"
         case outlined = "OUTLINED"
+        case date = "DATE"
     }
 
     public private(set) var placeholder: String

@@ -17,13 +17,14 @@ let componentTypes: [String: Component.Type] = [
     Component.ComponentType.passwordTextField.rawValue: PasswordTextFieldComponent.self,
     Component.ComponentType.segmentedSwitch.rawValue: SegmentedSwitch.self,
     Component.ComponentType.card.rawValue: CardComponent.self,
-    Component.ComponentType.reportDetail.rawValue: DetailScreen.ReportDetail.self,
+    Component.ComponentType.reportDetail.rawValue: ReportDetailComponent.self,
     Component.ComponentType.fingerprint.rawValue: FingerprintComponent.self,
     Component.ComponentType.filters.rawValue: FilterComponent.self,
     Component.ComponentType.contentHeader.rawValue: HeaderComponent.self,
     Component.ComponentType.chipOptions.rawValue: ChipOptionComponent.self,
     Component.ComponentType.finding.rawValue: FindingComponent.self,
-    Component.ComponentType.detailedInfoList.rawValue: DetailedInfoListComponent.self
+    Component.ComponentType.detailedInfoList.rawValue: DetailedInfoListComponent.self,
+    Component.ComponentType.inventoryCheck.rawValue: InventoryCheckComponent.self
 ]
 
 public struct ComponentSerializer: Codable {

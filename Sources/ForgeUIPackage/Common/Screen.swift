@@ -8,10 +8,13 @@
 import Foundation
 
 public struct Header: Codable {
-    public var icon: String? = nil
+    public let icon: String?
     public let title: Text
-    public var subtitle: Text? = nil
-    public var margins: Component.Margin
+    public let subtitle: Text?
+    public let rightIcon: String?
+    public let badgeCount: String?
+    public let detail: DetailScreen?
+    public let margins: Component.Margin
 
     public struct Text: Codable {
         public var text: String
@@ -31,42 +34,47 @@ public struct Header: Codable {
     private enum CodingKeys: String, CodingKey {
         case title, subtitle, margins
         case icon = "left_icon"
+        case rightIcon = "right_icon"
+        case badgeCount = "badge_count"
+        case detail = "reports_detail"
     }
 
     public init(
         icon: String? = nil,
         title: Text,
         subtitle: Text? = nil,
+        rightIcon: String? = nil,
+        badgeCount: String? = nil,
+        detail: DetailScreen? = nil,
         margins: Component.Margin
     ) {
         self.icon = icon
         self.title = title
         self.subtitle = subtitle
+        self.rightIcon = rightIcon
+        self.badgeCount = badgeCount
+        self.detail = detail
         self.margins = margins
     }
 }
 
 public struct Footer: Codable {
     public var leftButton: ButtonComponent
-    public var middleButton: ButtonComponent?
     public var rightButton: ButtonComponent?
     public var direction: Direction
 
     enum CodingKeys: String, CodingKey {
         case leftButton = "left_button"
-        case middleButton = "middle_button"
         case rightButton = "right_button"
         case direction
     }
 
     public init(
         leftButton: ButtonComponent,
-        middleButton: ButtonComponent?,
         rightButton: ButtonComponent?,
         direction: Direction
     ) {
         self.rightButton = rightButton
-        self.middleButton = middleButton
         self.leftButton = leftButton
         self.direction = direction
     }
@@ -74,7 +82,6 @@ public struct Footer: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.leftButton = try container.decode(ButtonComponent.self, forKey: .leftButton)
-        self.middleButton = try container.decodeIfPresent(ButtonComponent.self, forKey: .middleButton)
         self.rightButton = try container.decodeIfPresent(ButtonComponent.self, forKey: .rightButton)
 //        let direction = try container.decodeIfPresent(Direction.self, forKey: .direction)
         self.direction = .horizontal
