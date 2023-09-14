@@ -20,11 +20,12 @@ let componentTypes: [String: Component.Type] = [
     Component.ComponentType.reportDetail.rawValue: ReportDetailComponent.self,
     Component.ComponentType.fingerprint.rawValue: FingerprintComponent.self,
     Component.ComponentType.filters.rawValue: FilterComponent.self,
-    Component.ComponentType.contentHeader.rawValue: HeaderComponent.self,
     Component.ComponentType.chipOptions.rawValue: ChipOptionComponent.self,
     Component.ComponentType.finding.rawValue: FindingComponent.self,
     Component.ComponentType.detailedInfoList.rawValue: DetailedInfoListComponent.self,
-    Component.ComponentType.inventoryCheck.rawValue: InventoryCheckComponent.self
+    Component.ComponentType.inventoryCheck.rawValue: InventoryCheckComponent.self,
+    Component.ComponentType.header.rawValue: Header.self,
+    Component.ComponentType.slider.rawValue: SliderComponent.self
 ]
 
 public struct ComponentSerializer: Codable {
