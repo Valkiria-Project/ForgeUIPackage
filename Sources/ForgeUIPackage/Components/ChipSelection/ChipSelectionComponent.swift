@@ -1,13 +1,13 @@
 //
-//  ChipOptionComponent.swift
+//  ChipSelectionComponent.swift
 //  
 //
-//  Created by Ricardo Grajales Duque on 22/08/23.
+//  Created by Diego Alejandro Villa Cardenas on 13/09/23.
 //
 
 import Foundation
 
-public class ChipOptionComponent: Component {
+public class ChipSelectionComponent: Component {
 
     // MARK: - ChipOptionComponent Internal Models
     public struct Item: Codable, Hashable {

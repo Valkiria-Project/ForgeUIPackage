@@ -54,6 +54,8 @@ extension Component {
         case detailedInfoList = "DETAILED_INFO_LIST"
         case inventoryCheck = "INVENTORY_CHECK"
         case header = "HEADER"
+        case slider = "SLIDER"
+        case dropDown = "DROP_DOWN"
     }
 
     public enum TextStyle: String, Codable {
