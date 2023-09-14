@@ -76,7 +76,7 @@ extension Component {
         public let right: CGFloat
         public let bottom: CGFloat
 
-        init() {
+        public init() {
             top = 0
             left = 0
             right = 0
