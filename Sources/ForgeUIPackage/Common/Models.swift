@@ -44,7 +44,7 @@ extension Component {
         case richLabel = "RICH_LABEL"
         case passwordTextField = "PASSWORD_TEXT_FIELD"
         case segmentedSwitch = "SEGMENTED_SWITCH"
-        case card = "CREW_MEMBER_CARD"
+        case card = "INFO_CARD"
         case reportDetail = "BODY_REPORT_DETAIL"
         case fingerprint = "FINGERPRINT" //Type required to decode SISEM Login screen
         case contentHeader = "CONTENT_HEADER"
@@ -53,6 +53,7 @@ extension Component {
         case finding = "FINDING"
         case detailedInfoList = "DETAILED_INFO_LIST"
         case inventoryCheck = "INVENTORY_CHECK"
+        case header = "HEADER"
     }
 
     public enum TextStyle: String, Codable {

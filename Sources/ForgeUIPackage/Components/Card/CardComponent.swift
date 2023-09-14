@@ -52,7 +52,7 @@ public class CardComponent: Component {
     public let icon: String
     public let title: Content
     public let pill: Pill
-    public let date: Content
+    public let date: Content?
     public let chipSection: CardChipSection?
     public let reportsDetail: DetailScreen?
 
@@ -67,7 +67,7 @@ public class CardComponent: Component {
         icon: String,
         title: Component.Content,
         pill: Pill,
-        date: Component.Content,
+        date: Component.Content?,
         chipSection: CardChipSection?,
         reportsDetail: DetailScreen?,
         margins: Component.Margin,
@@ -87,7 +87,7 @@ public class CardComponent: Component {
         self.icon = try container.decode(String.self, forKey: .icon)
         self.title = try container.decode(Component.Content.self, forKey: .title)
         self.pill = try container.decode(Pill.self, forKey: .pill)
-        self.date = try container.decode(Component.Content.self, forKey: .date)
+        self.date = try container.decodeIfPresent(Component.Content.self, forKey: .date)
         self.chipSection = try container.decodeIfPresent(CardChipSection.self, forKey: .chipSection)
         self.reportsDetail = try container.decodeIfPresent(DetailScreen.self, forKey: .reportsDetail)
         try super.init(from: decoder)
