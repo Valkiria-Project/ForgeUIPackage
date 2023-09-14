@@ -47,7 +47,6 @@ extension Component {
         case card = "INFO_CARD"
         case reportDetail = "BODY_REPORT_DETAIL"
         case fingerprint = "FINGERPRINT" //Type required to decode SISEM Login screen
-        case contentHeader = "CONTENT_HEADER"
         case filters = "FILTERS"
         case chipOptions = "CHIP_OPTIONS"
         case finding = "FINDING"
