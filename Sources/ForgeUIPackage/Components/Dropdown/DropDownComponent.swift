@@ -15,7 +15,7 @@ public struct DropDownItem: Codable {
 public class DropDownComponent: Component {
     public let label: String
     public let options: [DropDownItem]
-    public let selected: String
+    public let selected: String?
 
     private enum CodingKeys: String, CodingKey {
         case label, options, selected
@@ -40,7 +40,7 @@ public class DropDownComponent: Component {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.label = try container.decode(String.self, forKey: .label)
         self.options = try container.decode([DropDownItem].self, forKey: .options)
-        self.selected = try container.decode(String.self, forKey: .selected)
+        self.selected = try container.decodeIfPresent(String.self, forKey: .selected)
         try super.init(from: decoder)
     }
 

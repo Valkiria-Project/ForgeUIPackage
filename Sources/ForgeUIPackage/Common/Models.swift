@@ -55,6 +55,9 @@ extension Component {
         case header = "HEADER"
         case slider = "SLIDER"
         case dropDown = "DROP_DOWN"
+        case chipSelection = "CHIP_SELECTION"
+        case imageButton = "IMAGE_BUTTON"
+        case imageButtonSection = "IMAGE_BUTTON_SECTION"
     }
 
     public enum TextStyle: String, Codable {
