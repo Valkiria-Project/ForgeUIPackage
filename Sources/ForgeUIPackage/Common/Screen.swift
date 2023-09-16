@@ -45,7 +45,7 @@ public class Header: Component {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.icon = try container.decode(String.self, forKey: .icon)
+        self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
         self.title = try container.decode(Component.Content.self, forKey: .title)
         self.subtitle = try container.decodeIfPresent(Component.Content.self, forKey: .subtitle)
         self.rightIcon = try container.decodeIfPresent(String.self, forKey: .rightIcon)

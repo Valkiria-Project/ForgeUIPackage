@@ -25,7 +25,11 @@ let componentTypes: [String: Component.Type] = [
     Component.ComponentType.detailedInfoList.rawValue: DetailedInfoListComponent.self,
     Component.ComponentType.inventoryCheck.rawValue: InventoryCheckComponent.self,
     Component.ComponentType.header.rawValue: Header.self,
-    Component.ComponentType.slider.rawValue: SliderComponent.self
+    Component.ComponentType.slider.rawValue: SliderComponent.self,
+    Component.ComponentType.chipSelection.rawValue: ChipSelectionComponent.self,
+    Component.ComponentType.dropDown.rawValue: DropDownComponent.self,
+    Component.ComponentType.imageButton.rawValue: ImageButtonComponent.self,
+    Component.ComponentType.imageButtonSection.rawValue: ImageButtonSectionComponent.self,
 ]
 
 public struct ComponentSerializer: Codable {
