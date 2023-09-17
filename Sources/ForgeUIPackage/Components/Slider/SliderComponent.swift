@@ -19,7 +19,6 @@ public class SliderComponent: Component {
     public init(
         id: String,
         margins: Component.Margin,
-        type: Component.ComponentType,
         arrangement: Component.Arrangement,
         selected: Int,
         min: Int,
