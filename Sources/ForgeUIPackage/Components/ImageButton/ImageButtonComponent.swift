@@ -21,7 +21,6 @@ public class ImageButtonComponent: Component {
         id: String,
         textStyle: Component.TextStyle? = nil,
         margins: Component.Margin,
-        type: Component.ComponentType,
         arrangement: Component.Arrangement,
         image: String,
         title: Component.Content?,

@@ -19,7 +19,6 @@ public class ImageButtonSectionComponent: Component {
         id: String,
         textStyle: Component.TextStyle? = nil,
         margins: Component.Margin,
-        type: Component.ComponentType,
         arrangement: Component.Arrangement,
         title: Component.Content,
         options: [ImageButtonComponent]

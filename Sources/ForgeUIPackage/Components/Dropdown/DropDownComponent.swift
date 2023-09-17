@@ -24,7 +24,6 @@ public class DropDownComponent: Component {
     public init(
         id: String,
         margins: Component.Margin,
-        type: Component.ComponentType,
         arrangement: Component.Arrangement,
         label: String,
         options: [DropDownItem],
