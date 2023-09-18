@@ -10,6 +10,11 @@ import Foundation
 public struct DropDownItem: Codable {
     public let id: String
     public let name: String
+    
+    public init(id: String, name: String) {
+        self.id = id
+        self.name = name
+    }
 }
 
 public class DropDownComponent: Component {
@@ -27,7 +32,7 @@ public class DropDownComponent: Component {
         arrangement: Component.Arrangement,
         label: String,
         options: [DropDownItem],
-        selected: String
+        selected: String?
     ) {
         self.label = label
         self.options = options
