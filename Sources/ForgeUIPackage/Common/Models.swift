@@ -58,6 +58,7 @@ extension Component {
         case chipSelection = "CHIP_SELECTION"
         case imageButton = "IMAGE_BUTTON"
         case imageButtonSection = "IMAGE_BUTTON_SECTION"
+        case humanBody = "HUMAN_BODY"
     }
 
     public enum TextStyle: String, Codable {
