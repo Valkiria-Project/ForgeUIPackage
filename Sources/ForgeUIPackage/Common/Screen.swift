@@ -7,32 +7,16 @@
 
 import Foundation
 
-public struct Header: Codable {
+public class Header: Component {
     public let icon: String?
-    public let title: Text
-    public let subtitle: Text?
+    public let title: Component.Content
+    public let subtitle: Component.Content?
     public let rightIcon: String?
     public let badgeCount: String?
     public let detail: DetailScreen?
-    public let margins: Component.Margin
-
-    public struct Text: Codable {
-        public var text: String
-        public var style: Component.TextStyle
-
-        private enum CodingKeys: String, CodingKey {
-            case text
-            case style = "text_style"
-        }
-
-        public init(text: String, style: Component.TextStyle) {
-            self.text = text
-            self.style = style
-        }
-    }
 
     private enum CodingKeys: String, CodingKey {
-        case title, subtitle, margins
+        case title, subtitle
         case icon = "left_icon"
         case rightIcon = "right_icon"
         case badgeCount = "badge_count"
@@ -40,13 +24,15 @@ public struct Header: Codable {
     }
 
     public init(
+        id: String,
         icon: String? = nil,
-        title: Text,
-        subtitle: Text? = nil,
+        title: Component.Content,
+        subtitle: Component.Content? = nil,
         rightIcon: String? = nil,
         badgeCount: String? = nil,
         detail: DetailScreen? = nil,
-        margins: Component.Margin
+        margins: Component.Margin,
+        arrangement: Component.Arrangement
     ) {
         self.icon = icon
         self.title = title
@@ -54,7 +40,18 @@ public struct Header: Codable {
         self.rightIcon = rightIcon
         self.badgeCount = badgeCount
         self.detail = detail
-        self.margins = margins
+        super.init(id: id, margins: margins, type: .header, arrangement: arrangement)
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
+        self.title = try container.decode(Component.Content.self, forKey: .title)
+        self.subtitle = try container.decodeIfPresent(Component.Content.self, forKey: .subtitle)
+        self.rightIcon = try container.decodeIfPresent(String.self, forKey: .rightIcon)
+        self.badgeCount = try container.decodeIfPresent(String.self, forKey: .badgeCount)
+        self.detail = try container.decodeIfPresent(DetailScreen.self, forKey: .detail)
+        try super.init(from: decoder)
     }
 }
 
