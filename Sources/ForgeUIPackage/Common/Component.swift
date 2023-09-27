@@ -10,12 +10,13 @@ import Foundation
 public class Component: Identifiable, Codable {
     public let id: String
     public let textStyle: TextStyle?
+    public let section: String?
     public let margins: Margin
     public let type: ComponentType
     public let arrangement: Arrangement
 
     enum CodingKeys: String, CodingKey {
-        case margins, type, arrangement
+        case margins, type, arrangement, section
         case textStyle = "text_style"
         case id = "identifier"
     }
@@ -25,13 +26,15 @@ public class Component: Identifiable, Codable {
         textStyle: TextStyle? = nil,
         margins: Margin,
         type: ComponentType,
-        arrangement: Arrangement
+        arrangement: Arrangement,
+        section: String? = nil
     ) {
         self.id = id
         self.textStyle = textStyle
         self.margins = margins
         self.type = type
         self.arrangement = arrangement
+        self.section = section
     }
 
     public required init(from decoder: Decoder) throws {
@@ -41,6 +44,7 @@ public class Component: Identifiable, Codable {
         self.margins = try container.decode(Margin.self, forKey: .margins)
         self.type = try container.decode(ComponentType.self, forKey: .type)
         self.arrangement = try container.decode(Arrangement.self, forKey: .arrangement)
+        self.section = try container.decodeIfPresent(String.self, forKey: .section)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -50,5 +54,6 @@ public class Component: Identifiable, Codable {
         try container.encode(self.margins, forKey: .margins)
         try container.encode(self.type, forKey: .type)
         try container.encode(self.arrangement, forKey: .arrangement)
+        try container.encode(self.section, forKey: .section)
     }
 }

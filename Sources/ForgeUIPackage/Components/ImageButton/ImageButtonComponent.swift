@@ -19,7 +19,6 @@ public class ImageButtonComponent: Component {
 
     public init(
         id: String,
-        textStyle: Component.TextStyle? = nil,
         margins: Component.Margin,
         arrangement: Component.Arrangement,
         image: String,
