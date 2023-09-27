@@ -31,6 +31,7 @@ let componentTypes: [String: Component.Type] = [
     Component.ComponentType.imageButton.rawValue: ImageButtonComponent.self,
     Component.ComponentType.imageButtonSection.rawValue: ImageButtonSectionComponent.self,
     Component.ComponentType.humanBody.rawValue: HumanBodyComponent.self,
+    Component.ComponentType.stepper.rawValue: StepperComponent.self,
 ]
 
 public struct ComponentSerializer: Codable {
