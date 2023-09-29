@@ -29,6 +29,7 @@ public class TextFieldComponent: Component {
     public let style: Style
     public let icon: String?
     public let charLimit: Int?
+    public let enabled: Bool
 
     public init(
         id: String,
@@ -39,8 +40,10 @@ public class TextFieldComponent: Component {
         keyboardType: KeyboardType,
         textStyle: Component.TextStyle,
         style: Style,
+        enabled: Bool,
         margins: Component.Margin,
         arrangement: Component.Arrangement
+        
     ) {
         self.placeholder = placeholder
         self.icon = icon
@@ -48,11 +51,12 @@ public class TextFieldComponent: Component {
         self.validations = validations
         self.style = style
         self.keyboardType = keyboardType
+        self.enabled = enabled
         super.init(id: id, textStyle: textStyle, margins: margins, type: .textField, arrangement: arrangement)
     }
 
     private enum CodingKeys: String, CodingKey {
-        case placeholder, validations, icon, style
+        case placeholder, validations, icon, style, enabled
         case keyboardType = "keyboard_type"
         case charLimit = "char_limit"
     }
@@ -65,6 +69,7 @@ public class TextFieldComponent: Component {
         self.style = try container.decode(Style.self, forKey: .style)
         self.validations = try container.decode([RegexValidation].self, forKey: .validations)
         self.keyboardType = try container.decode(KeyboardType.self, forKey: .keyboardType)
+        self.enabled = try container.decode(Bool.self, forKey: .enabled)
         try super.init(from: decoder)
     }
 }
