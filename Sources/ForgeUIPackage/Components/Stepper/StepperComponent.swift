@@ -17,7 +17,6 @@ public class StepperComponent: Component {
     public init(
         id: String,
         margins: Component.Margin,
-        type: Component.ComponentType,
         arrangement: Component.Arrangement,
         section: String? = nil,
         options: [String: String]
