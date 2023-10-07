@@ -30,9 +30,10 @@ public class InventoryCheckComponent: Component {
     public let registered: Component.Content
     public let received: Component.Content
     public let items: [InventoryItem]
+    public let validations: [RegexValidation]
 
     private enum CodingKeys: String, CodingKey {
-        case registered, received, items
+        case registered, received, items, validations
     }
 
     public init(
@@ -40,12 +41,14 @@ public class InventoryCheckComponent: Component {
         registered: Component.Content,
         received: Component.Content,
         items: [InventoryItem],
+        validations: [RegexValidation],
         margins: Component.Margin,
         arrangement: Component.Arrangement
     ) {
         self.registered = registered
         self.received = received
         self.items = items
+        self.validations = validations
         super.init(id: id, margins: margins, type: .inventoryCheck, arrangement: arrangement)
     }
 
@@ -54,6 +57,7 @@ public class InventoryCheckComponent: Component {
         self.registered = try container.decode(Component.Content.self, forKey: .registered)
         self.received = try container.decode(Component.Content.self, forKey: .received)
         self.items = try container.decode([InventoryItem].self, forKey: .items)
+        self.validations = try container.decode([RegexValidation].self, forKey: .validations)
         try super.init(from: decoder)
     }
 }
