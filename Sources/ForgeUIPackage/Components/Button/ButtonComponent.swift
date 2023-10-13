@@ -22,20 +22,21 @@ public class ButtonComponent: Component {
     }
     
     public private(set) var label: String?
-    public private(set) var icon: String?
+    public private(set) var leftIcon: String?
     public private(set) var style: Style
     public private(set) var size: ButtonComponent.Size
     public private(set) var onClick: Action
 
     private enum CodingKeys: String, CodingKey {
-        case label, icon, style, size
+        case label, style, size
         case onClick = "on_click"
+        case leftIcon = "left_icon"
     }
 
     public init(
         id: String,
         label: String?,
-        icon: String?,
+        leftIcon: String?,
         style: Style,
         size: ButtonComponent.Size,
         onClick: Action,
@@ -44,7 +45,7 @@ public class ButtonComponent: Component {
         arrangement: Component.Arrangement
     ) {
         self.label = label
-        self.icon = icon
+        self.leftIcon = leftIcon
         self.style = style
         self.onClick = onClick
         self.size = size
@@ -54,7 +55,7 @@ public class ButtonComponent: Component {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.label = try container.decodeIfPresent(String.self, forKey: .label)
-        self.icon = try container.decodeIfPresent(String.self, forKey: .icon)
+        self.leftIcon = try container.decodeIfPresent(String.self, forKey: .leftIcon)
         self.style = try container.decode(Style.self, forKey: .style)
         self.size = try container.decode(ButtonComponent.Size.self, forKey: .size)
         self.onClick = try container.decode(Action.self, forKey: .onClick)
