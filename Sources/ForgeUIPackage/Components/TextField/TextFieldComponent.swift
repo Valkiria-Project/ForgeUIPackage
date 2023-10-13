@@ -30,12 +30,14 @@ public class TextFieldComponent: Component {
     public let style: Style
     public let icon: String?
     public let charLimit: Int?
+    public let realTimeValidation: Bool
 
     public init(
         id: String,
         placeholder: String,
         icon: String? = nil,
         charLimit: Int? = nil,
+        realTimeValidation: Bool = false,
         validations: [RegexValidation],
         keyboardType: KeyboardType,
         textStyle: Component.TextStyle,
@@ -48,6 +50,7 @@ public class TextFieldComponent: Component {
         self.icon = icon
         self.charLimit = charLimit
         self.validations = validations
+        self.realTimeValidation = realTimeValidation
         self.style = style
         self.keyboardType = keyboardType
         super.init(id: id, textStyle: textStyle, margins: margins, type: .textField, arrangement: arrangement)
@@ -57,6 +60,7 @@ public class TextFieldComponent: Component {
         case placeholder, validations, icon, style
         case keyboardType = "keyboard_type"
         case charLimit = "char_limit"
+        case realTimeValidation = "real_time_validation"
     }
 
     public required init(from decoder: Decoder) throws {
@@ -66,6 +70,7 @@ public class TextFieldComponent: Component {
         self.charLimit = try container.decodeIfPresent(Int.self, forKey: .charLimit)
         self.style = try container.decode(Style.self, forKey: .style)
         self.validations = try container.decode([RegexValidation].self, forKey: .validations)
+        self.realTimeValidation = try container.decode(Bool.self, forKey: .realTimeValidation)
         self.keyboardType = try container.decode(KeyboardType.self, forKey: .keyboardType)
         try super.init(from: decoder)
     }
