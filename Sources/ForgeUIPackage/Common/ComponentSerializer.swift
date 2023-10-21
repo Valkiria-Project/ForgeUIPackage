@@ -34,6 +34,7 @@ let componentTypes: [String: Component.Type] = [
     Component.ComponentType.stepper.rawValue: StepperComponent.self,
     Component.ComponentType.infoCardButton.rawValue: InfoCardButtonComponent.self,
     Component.ComponentType.timePicker.rawValue: TimePickerComponent.self,
+    Component.ComponentType.signature.rawValue: SignatureComponent.self,
 ]
 
 public struct ComponentSerializer: Codable {
