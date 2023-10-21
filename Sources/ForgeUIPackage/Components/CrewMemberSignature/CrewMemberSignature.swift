@@ -10,7 +10,7 @@ import Foundation
 public class CrewMemberSignatureComponent: Component {
     public let name: Component.Content
     public let identification: Component.Content
-    public let signature: String
+    public let signature: String?
 
     private enum CodingKeys: String, CodingKey {
         case name
@@ -22,7 +22,7 @@ public class CrewMemberSignatureComponent: Component {
         id: String,
         name: Component.Content,
         identification: Component.Content,
-        signature: String,
+        signature: String? = nil,
         margins: Component.Margin
     ) {
         self.name = name
@@ -35,7 +35,7 @@ public class CrewMemberSignatureComponent: Component {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(Component.Content.self, forKey: .name)
         self.identification = try container.decode(Component.Content.self, forKey: .identification)
-        self.signature = try container.decode(String.self, forKey: .signature)
+        self.signature = try container.decodeIfPresent(String.self, forKey: .signature)
         try super.init(from: decoder)
     }
 }
