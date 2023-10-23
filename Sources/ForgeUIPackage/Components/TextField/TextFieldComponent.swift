@@ -31,6 +31,8 @@ public class TextFieldComponent: Component {
     public let icon: String?
     public let charLimit: Int?
     public let realTimeValidation: Bool
+    public let maxDate: String?
+    public let minDate: String?
 
     public init(
         id: String,
@@ -38,6 +40,8 @@ public class TextFieldComponent: Component {
         icon: String? = nil,
         charLimit: Int? = nil,
         realTimeValidation: Bool = false,
+        minDate: String? = nil,
+        maxDate: String? = nil,
         validations: [RegexValidation],
         keyboardType: KeyboardType,
         textStyle: Component.TextStyle,
@@ -51,6 +55,8 @@ public class TextFieldComponent: Component {
         self.charLimit = charLimit
         self.validations = validations
         self.realTimeValidation = realTimeValidation
+        self.minDate = minDate
+        self.maxDate = maxDate
         self.style = style
         self.keyboardType = keyboardType
         super.init(id: id, textStyle: textStyle, margins: margins, type: .textField, arrangement: arrangement)
@@ -61,6 +67,8 @@ public class TextFieldComponent: Component {
         case keyboardType = "keyboard_type"
         case charLimit = "char_limit"
         case realTimeValidation = "real_time_validation"
+        case maxDate = "max_date"
+        case minDate = "min_date"
     }
 
     public required init(from decoder: Decoder) throws {
@@ -72,6 +80,8 @@ public class TextFieldComponent: Component {
         self.validations = try container.decode([RegexValidation].self, forKey: .validations)
         self.realTimeValidation = try container.decode(Bool.self, forKey: .realTimeValidation)
         self.keyboardType = try container.decode(KeyboardType.self, forKey: .keyboardType)
+        self.minDate = try container.decodeIfPresent(String.self, forKey: .minDate)
+        self.maxDate = try container.decodeIfPresent(String.self, forKey: .maxDate)
         try super.init(from: decoder)
     }
 }
