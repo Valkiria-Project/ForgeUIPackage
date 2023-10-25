@@ -32,7 +32,9 @@ public class DetailedInfoListComponent: Component {
 }
 
 public struct DetailedInfo: Codable, Identifiable {
-    public var id: String = UUID().uuidString
+    public var id: String {
+        UUID().uuidString
+    }
     public var label: String
     public var icon: String?
     public var text: String
