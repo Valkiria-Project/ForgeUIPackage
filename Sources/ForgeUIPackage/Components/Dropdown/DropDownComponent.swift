@@ -20,10 +20,11 @@ public struct DropDownItem: Codable {
 public class DropDownComponent: Component {
     public let label: String
     public let options: [DropDownItem]
+    public let header: Header
     public let selected: String?
 
     private enum CodingKeys: String, CodingKey {
-        case label, options, selected
+        case label, options, selected, header
     }
 
     public init(
@@ -32,11 +33,13 @@ public class DropDownComponent: Component {
         arrangement: Component.Arrangement,
         label: String,
         options: [DropDownItem],
+        header: Header,
         selected: String?
     ) {
         self.label = label
         self.options = options
         self.selected = selected
+        self.header = header
         super.init(id: id, margins: margins, type: .dropDown, arrangement: arrangement)
     }
 
@@ -45,6 +48,7 @@ public class DropDownComponent: Component {
         self.label = try container.decode(String.self, forKey: .label)
         self.options = try container.decode([DropDownItem].self, forKey: .options)
         self.selected = try container.decodeIfPresent(String.self, forKey: .selected)
+        self.header = try container.decode(Header.self, forKey: .header)
         try super.init(from: decoder)
     }
 
