@@ -21,24 +21,34 @@ public class ChipSelectionComponent: Component {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case title, items
+        case title, items, selected
     }
 
     // MARK: - Properties
     public var title: Component.Content
     public var items: [Item]
+    public var selected: String?
 
     // MARK: - Constructor
-    public init(id: String, margins: Margin, arrangement: Arrangement, title: Component.Content, items: [Item]) {
+    public init(
+        id: String,
+        margins: Margin,
+        arrangement: Arrangement,
+        title: Component.Content,
+        items: [Item],
+        selected: String? = nil
+    ) {
         self.title = title
         self.items = items
+        self.selected = selected
         super.init(id: id, margins: margins, type: .chipOptions, arrangement: arrangement)
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.title = try container.decode(Component.Content.self, forKey: .title)
-        self.items =  try container.decode([Item].self, forKey: .items)
+        self.items = try container.decode([Item].self, forKey: .items)
+        self.selected = try container.decode(String.self, forKey: .selected)
         try super.init(from: decoder)
     }
 }
