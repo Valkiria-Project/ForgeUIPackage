@@ -11,7 +11,7 @@ public class SegmentedSwitch: Component {
     public let text: String
     public let options: [Option]
     public let readOnly: Bool
-    public let selected: Bool
+    public let selected: Bool?
 
     private enum CodingKeys: String, CodingKey {
         case text, options, selected
@@ -23,7 +23,7 @@ public class SegmentedSwitch: Component {
         text: String,
         options: [SegmentedSwitch.Option],
         readOnly: Bool,
-        selected: Bool,
+        selected: Bool? = nil,
         textStyle: Component.TextStyle,
         margins: Margin,
         arrangement: Component.Arrangement
@@ -40,7 +40,7 @@ public class SegmentedSwitch: Component {
         self.text = try container.decode(String.self, forKey: .text)
         self.options = try container.decode([Option].self, forKey: .options)
         self.readOnly = try container.decode(Bool.self, forKey: .readOnly)
-        self.selected = try container.decode(Bool.self, forKey: .selected)
+        self.selected = try container.decodeIfPresent(Bool.self, forKey: .selected)
         try super.init(from: decoder)
     }
 
