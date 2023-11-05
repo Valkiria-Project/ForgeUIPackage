@@ -48,7 +48,7 @@ public class ChipSelectionComponent: Component {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.title = try container.decode(Component.Content.self, forKey: .title)
         self.items = try container.decode([Item].self, forKey: .items)
-        self.selected = try container.decode(String.self, forKey: .selected)
+        self.selected = try container.decodeIfPresent(String.self, forKey: .selected)
         try super.init(from: decoder)
     }
 }
