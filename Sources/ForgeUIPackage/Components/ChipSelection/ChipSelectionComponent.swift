@@ -8,6 +8,7 @@
 import Foundation
 
 public class ChipSelectionComponent: Component {
+    public let selectionVisibility: [String: String]?
 
     // MARK: - ChipOptionComponent Internal Models
     public struct Item: Codable, Hashable {
@@ -22,6 +23,7 @@ public class ChipSelectionComponent: Component {
 
     private enum CodingKeys: String, CodingKey {
         case title, items, selected
+        case selectionVisibility = "selection_visibility"
     }
 
     // MARK: - Properties
@@ -36,11 +38,14 @@ public class ChipSelectionComponent: Component {
         arrangement: Arrangement,
         title: Component.Content,
         items: [Item],
-        selected: String? = nil
+        selected: String? = nil,
+        selectionVisibility: [String: String]? = nil
+
     ) {
         self.title = title
         self.items = items
         self.selected = selected
+        self.selectionVisibility = selectionVisibility
         super.init(id: id, margins: margins, type: .chipOptions, arrangement: arrangement)
     }
 
@@ -49,6 +54,7 @@ public class ChipSelectionComponent: Component {
         self.title = try container.decode(Component.Content.self, forKey: .title)
         self.items = try container.decode([Item].self, forKey: .items)
         self.selected = try container.decodeIfPresent(String.self, forKey: .selected)
+        self.selectionVisibility = try container.decodeIfPresent([String: String].self, forKey: .selectionVisibility)
         try super.init(from: decoder)
     }
 }

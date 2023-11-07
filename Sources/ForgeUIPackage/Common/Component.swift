@@ -14,9 +14,10 @@ public class Component: Identifiable, Codable {
     public let margins: Margin
     public let type: ComponentType
     public let arrangement: Arrangement
+    public let visibility: Bool?
 
     enum CodingKeys: String, CodingKey {
-        case margins, type, arrangement, section
+        case margins, type, arrangement, section, visibility
         case textStyle = "text_style"
         case id = "identifier"
     }
@@ -27,7 +28,8 @@ public class Component: Identifiable, Codable {
         margins: Margin,
         type: ComponentType,
         arrangement: Arrangement,
-        section: String? = nil
+        section: String? = nil,
+        visibility: Bool? = nil
     ) {
         self.id = id
         self.textStyle = textStyle
@@ -35,6 +37,7 @@ public class Component: Identifiable, Codable {
         self.type = type
         self.arrangement = arrangement
         self.section = section
+        self.visibility = visibility
     }
 
     public required init(from decoder: Decoder) throws {
@@ -45,6 +48,7 @@ public class Component: Identifiable, Codable {
         self.type = try container.decode(ComponentType.self, forKey: .type)
         self.arrangement = try container.decode(Arrangement.self, forKey: .arrangement)
         self.section = try container.decodeIfPresent(String.self, forKey: .section)
+        self.visibility = try container.decodeIfPresent(Bool.self, forKey: .visibility)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -55,5 +59,6 @@ public class Component: Identifiable, Codable {
         try container.encode(self.type, forKey: .type)
         try container.encode(self.arrangement, forKey: .arrangement)
         try container.encode(self.section, forKey: .section)
+        try container.encode(self.visibility, forKey: .visibility)
     }
 }
