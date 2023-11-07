@@ -22,12 +22,14 @@ public class ChipOptionComponent: Component {
 
     private enum CodingKeys: String, CodingKey {
         case title, items, selected
+        case selectionVisibility = "selection_visibility"
     }
 
     // MARK: - Properties
     public var title: Component.Content
     public var items: [Item]
     public var selected: String?
+    public let selectionVisibility: [String: String]?
 
     // MARK: - Constructor
     public init(
@@ -36,11 +38,13 @@ public class ChipOptionComponent: Component {
         arrangement: Arrangement,
         title: Component.Content,
         items: [Item],
-        selected: String? = nil
+        selected: String? = nil,
+        selectionVisibility: [String: String]? = nil
     ) {
         self.title = title
         self.items = items
         self.selected = selected
+        self.selectionVisibility = selectionVisibility
         super.init(id: id, margins: margins, type: .chipOptions, arrangement: arrangement)
     }
 
@@ -49,6 +53,7 @@ public class ChipOptionComponent: Component {
         self.title = try container.decode(Component.Content.self, forKey: .title)
         self.items =  try container.decode([Item].self, forKey: .items)
         self.selected = try container.decodeIfPresent(String.self, forKey: .selected)
+        self.selectionVisibility = try container.decodeIfPresent([String: String].self, forKey: .selectionVisibility)
         try super.init(from: decoder)
     }
 }
