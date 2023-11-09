@@ -66,6 +66,7 @@ extension Component {
         case crewMemberSignature = "CREW_MEMBER_SIGNATURE"
         case mediaActions = "MEDIA_ACTIONS"
         case simpleCard = "SIMPLE_CARD"
+        case inventorySearch = "INVENTORY_SEARCH"
     }
 
     public enum TextStyle: String, Codable {

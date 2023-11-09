@@ -37,7 +37,8 @@ let componentTypes: [String: Component.Type] = [
     Component.ComponentType.signature.rawValue: SignatureComponent.self,
     Component.ComponentType.crewMemberSignature.rawValue: CrewMemberSignatureComponent.self,
     Component.ComponentType.mediaActions.rawValue: MediaActions.self,
-    Component.ComponentType.simpleCard.rawValue: SimpleCardComponent.self
+    Component.ComponentType.simpleCard.rawValue: SimpleCardComponent.self,
+    Component.ComponentType.inventorySearch.rawValue: InventorySearchComponent.self
 ]
 
 public struct ComponentSerializer: Codable {
