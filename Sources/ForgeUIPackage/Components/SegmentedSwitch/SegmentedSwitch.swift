@@ -61,3 +61,11 @@ public class SegmentedSwitch: Component {
         }
     }
 }
+
+public struct SegmentedValue: Codable {
+    public let title: Component.Content
+
+    public init(title: Component.Content) {
+        self.title = title
+    }
+}
